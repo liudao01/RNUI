@@ -7,6 +7,7 @@ import {View, Text, Dimensions, Image, TouchableOpacity, StyleSheet} from 'react
 import {_baseColor, _getHeight, _getWidth, _backgroundColor} from '../utils/config';
 const {height, width} = Dimensions.get('window')
 var itemHeight = 150;
+var imageUrl;
 export default class HeardLook extends React.Component {
     static defaultProps = {
         topType: true,
@@ -23,14 +24,14 @@ export default class HeardLook extends React.Component {
         }
     }
 
-    _imageUrlIsNot = (imageUrl, topType) => {
+    _imageUrlIsNot = (mimageUrl, topType) => {
         console.log("传入的 topType = " + topType);
-        if (!topType || imageUrl == "" || imageUrl == null || imageUrl == undefined) {
+        if (!topType || mimageUrl == "" || mimageUrl == null || mimageUrl == undefined) {
             itemHeight = 80;
             return (null);
         } else {
-            console.log("传入的 imageUrl = " + imageUrl);
-            return <Image style={styles.carImgStyle} source={{uri: imageUrl}}/>
+            console.log("传入的 mimageUrl = " + mimageUrl);
+            return <Image style={styles.carImgStyle} source={{uri: mimageUrl}}/>
         }
     }
 
@@ -61,7 +62,7 @@ export default class HeardLook extends React.Component {
     //
     // }
     render() {
-        var {topType, isFirst, imageUrl, title, textMessage, onClick} = this.props
+        var {topType, imageUrl, title, textMessage, onClick} = this.props
         return (
             <View style={styles.allView}>
                 <View style={styles.itemView}>
