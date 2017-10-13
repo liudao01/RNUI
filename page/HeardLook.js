@@ -123,11 +123,11 @@ const styles = StyleSheet.create({
     }
     ,
     itemText: {
-        fontSize: 8,
+        fontSize: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: _getWidth(20),
-        marginRight: _getWidth(20)
+        marginLeft: (20),
+        marginRight: (20)
     },
     textNext: {
         fontSize: 10,
@@ -136,10 +136,10 @@ const styles = StyleSheet.create({
     itemViewTextView: {
         alignItems: 'center',
         justifyContent: 'center',
-        height: _getHeight(30),
-        width: width / 3 - _getWidth(40),
+        height: (30),
+        width: width / 3 - (40),
         backgroundColor: 'red',
-        borderRadius: _getHeight(8)
+        borderRadius: (8)
     },
     itemViewTwo: {
         marginTop: (5),
