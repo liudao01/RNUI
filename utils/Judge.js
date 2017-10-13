@@ -11,6 +11,6 @@ export const _judeBackColor =(judetOne,judeTwo) =>{
     if(judetOne && judeTwo){
         return 'white'
     }else{
-        return 'yellow'
+        return '#FFE8D9'
     }
 }
