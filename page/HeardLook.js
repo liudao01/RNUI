@@ -30,8 +30,16 @@ export default class HeardLook extends React.Component {
             itemHeight = 80;
             return (null);
         } else {
-            console.log("传入的 mimageUrl = " + mimageUrl);
-            return <Image style={styles.carImgStyle} source={{uri: mimageUrl}}/>
+            // console.log("传入的 mimageUrl = " + mimageUrl);
+            return <Image style={styles.carImgStyle}  source={{
+                uri: mimageUrl,
+                method: 'POST',
+                headers: {
+                    Pragma: 'no-cache'
+                },
+                body: 'Your Body goes here'
+            }}/>
+            // return (null);
         }
     }
 

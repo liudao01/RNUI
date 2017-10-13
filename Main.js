@@ -11,11 +11,11 @@ import HeardLook from './page/HeardLook';//导入头部的选择页面
 
 // const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
 
-// const VIEWABILITY_CONFIG = {
-//   minimumViewTime: 3000,
-//   viewAreaCoveragePercentThreshold: 100,
-//   waitForInteraction: true,
-// };
+const VIEWABILITY_CONFIG = {
+  minimumViewTime: 3000,
+  viewAreaCoveragePercentThreshold: 100,
+  waitForInteraction: true,
+};
 
 var type = true;//顶部ui是否显示图片样式
 
@@ -255,7 +255,7 @@ export default class Main extends React.Component {
                     renderSectionHeader={this._renderSectionHeader}
                     stickySectionHeadersEnabled={true}
                     sections={this._dataSource}
-                    /* viewabilityConfig={VIEWABILITY_CONFIG} */
+                   /* viewabilityConfig={VIEWABILITY_CONFIG}*/
                 />
             </View>
             //   </ContentWrapper>
