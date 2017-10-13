@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\shinelon\.android\build-cache\e9b4a339528c1d750b06450ec438c33b78c9bd15\output\jars\libs\infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="E:\testProjectZip\test\android\app\build\intermediates\pre-dexed\debug\infer-annotations-4.0_2cc573896cbb08af951f5430f03e2b566daf71d2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\shinelon\.android\build-cache\e9b4a339528c1d750b06450ec438c33b78c9bd15\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e36a2f469842e2c73f5467af355304e1aa73f4e4">
+        <dex dex="E:\testProjectZip\test\android\app\build\intermediates\pre-dexed\debug\classes_f5ac532b440ebe8f380466a5ed141347a2b8ebf0.jar" />
+    </item>
+
+</items>

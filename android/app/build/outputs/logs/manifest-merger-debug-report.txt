@@ -1,0 +1,94 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:1:1-32:12
+	package
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:2:5-32
+		INJECTED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:4:5-30
+		INJECTED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:3:5-28
+		INJECTED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:6:5-67
+	android:name
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:7:5-77
+MERGED from [com.facebook.react:react-native:0.49.2] C:\Users\shinelon\.android\build-cache\e9b4a339528c1d750b06450ec438c33b78c9bd15\output\AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:7:22-75
+uses-sdk
+ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:9:5-11:41
+MERGED from [com.facebook.react:react-native:0.49.2] C:\Users\shinelon\.android\build-cache\e9b4a339528c1d750b06450ec438c33b78c9bd15\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:23.0.1] C:\Users\shinelon\.android\build-cache\698a500ba9320bcb3691c1d021ffb15616d2c904\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] C:\Users\shinelon\.android\build-cache\b1e29eed630d12fb0d13e8ea1248a677497aadb5\output\AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] C:\Users\shinelon\.android\build-cache\0a34073590d8517a901f186814c76d12d1d2e5ee\output\AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] C:\Users\shinelon\.android\build-cache\b2c5931eda2238e6fe3cbdeb09dc4c8ebbf3740a\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.3.0] C:\Users\shinelon\.android\build-cache\b69b91f930df01570509a95cdfbf542e0cee3a6b\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] C:\Users\shinelon\.android\build-cache\261dcd7605de498bc669cbf8b68ebf2f1dd3c215\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] C:\Users\shinelon\.android\build-cache\7bec891e533d06603c49d91d1e7b38a58003fc80\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] C:\Users\shinelon\.android\build-cache\b3a55848bb378beefd6930b1bd5c03f4d737142f\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] C:\Users\shinelon\.android\build-cache\69855bcb18dbdac8d9047e439e4d7e58b9e5e26c\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.1.0] C:\Users\shinelon\.android\build-cache\89fbbae090ee4aa993379672ee0e501c64452392\output\AndroidManifest.xml:2:3-70
+	android:targetSdkVersion
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:11:9-38
+		INJECTED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:10:9-35
+		INJECTED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml
+application
+ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:13:5-30:19
+MERGED from [com.facebook.react:react-native:0.49.2] C:\Users\shinelon\.android\build-cache\e9b4a339528c1d750b06450ec438c33b78c9bd15\output\AndroidManifest.xml:13:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.1] C:\Users\shinelon\.android\build-cache\698a500ba9320bcb3691c1d021ffb15616d2c904\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] C:\Users\shinelon\.android\build-cache\b1e29eed630d12fb0d13e8ea1248a677497aadb5\output\AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.soloader:soloader:0.1.0] C:\Users\shinelon\.android\build-cache\89fbbae090ee4aa993379672ee0e501c64452392\output\AndroidManifest.xml:3:3-17
+MERGED from [org.webkit:android-jsc:r174650] C:\Users\shinelon\.android\build-cache\88af15d807df7b1ad2d212b7cf251981539ac2e2\output\AndroidManifest.xml:2:3-17
+	android:label
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:16:7-39
+	android:allowBackup
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:15:7-33
+	android:icon
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:17:7-41
+	android:theme
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:18:7-38
+	android:name
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:14:7-38
+activity#com.compareresult.MainActivity
+ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:19:7-28:18
+	android:label
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:21:9-41
+	android:windowSoftInputMode
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:23:9-51
+	android:configChanges
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:22:9-79
+	android:name
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:20:9-37
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:24:9-27:25
+action#android.intent.action.MAIN
+ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:25:13-65
+	android:name
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:25:21-62
+category#android.intent.category.LAUNCHER
+ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:26:13-73
+	android:name
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:26:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:29:7-84
+	android:name
+		ADDED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:29:17-81
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:1:1-32:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:1:1-32:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from E:\testProjectZip\test\android\app\src\main\AndroidManifest.xml:1:1-32:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
