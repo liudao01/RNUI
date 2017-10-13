@@ -104,6 +104,7 @@ export default class Main extends React.Component {
 
     //横向item的点击事件
     _itemClick = (item, index) => {
+        this._isClickAction = false;        
         this.setState({selectSection: index});
         this._updateSelectSection(index);
         this._isClickAction = true;
@@ -120,7 +121,7 @@ export default class Main extends React.Component {
                         console.log(this.state.selectSection)
                         // console.log((index)
                     }
-                    <Text style={{color: this.state.selectSection == index ? '#FF5A5A' : '#999999'}}>{item.title}</Text>
+                    <Text style={{fontSize:14, color: this.state.selectSection == index ? '#FF5A5A' : '#999999'}}>{item.title}</Text>
                     <View style={styles.itemViewView}></View>
                 </View>
             </TouchableOpacity>
@@ -317,7 +318,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F3F3F3'
     },
     textStyle: {
-        fontSize: 15,
+        fontSize: 14,
         marginLeft: 10,
         color: '#666666'
     },
