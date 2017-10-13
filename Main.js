@@ -87,7 +87,7 @@ export default class Main extends React.Component {
         } else if (index > 0 && type == true) {
             this._updateTopUI(false);
         }
-        console.log("index" + index);
+        // console.log("index" + index);
         this._updateSelectSection(index);
         if (this._isClickAction && index === this.state.selectSection) {
             this._isClickAction = false;

@@ -60,3 +60,9 @@ node_modules
 /third-party
 /ios/build
 /.vscode/.react
+/__tests__/
+!/android/app/build/
+/android/app/build/
+/android/app/BUCK
+/android/app/app.iml
+/android/app/proguard-rules.pro
