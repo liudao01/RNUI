@@ -197,3 +197,20 @@ ios/.DS_Store
 ios/compareResult/.DS_Store
 ios/compareResult/Images.xcassets/.DS_Store
 node_modules/are-we-there-yet/CHANGES.md~
+/.gitignore
+### Gradle template
+.gradle
+/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+

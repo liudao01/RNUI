@@ -91,9 +91,16 @@ export default class Main extends React.Component {
                 return v.section.key
             }
         })
+
         var total = this._dataSource.length;
         var index = info.viewableItems[0].section.key;
+        if(index==0){
+            this._updateTopUI(true);
+        }else{
+            //this._updateTopUI(false);
+        }
         console.log("index" + index);
+        console.log("info" + info);
         // console.log(this._sectionChooseListRef.getMetrics().visibleRows);
         this.setState({selectSection: index});
         index -= 4;
@@ -192,18 +199,23 @@ export default class Main extends React.Component {
     //flatlist设置的标识
     _keyExtractor = (item, index) => index;
 
-    _topHeight=()=>{
-        if(type){
-            return _getHeight(150);
-        }else{
-            return _getHeight(80);
+    _topHeight = () => {
+        if (type) {
+            return 150;
+        } else {
+            return 80;
         }
     }
 
     //更新顶部UI
-    _updateTopUI = ()=>{
-        type = !type;
+    _updateTopUI = (flag) => {
+        type = flag;
         console.log("调用的type = " + type);
+        this.forceUpdate();
+    }
+    //更新顶部UI
+    myUpdate = (number) => {
+        console.log("调用的type = " + number );
         this.forceUpdate();
     }
 
@@ -212,10 +224,9 @@ export default class Main extends React.Component {
             <View style={styles.allView}>
                 <TopHeard title={'车辆对比'} textStyle={{fontSize: 20}} onClick_Left={() => {
                     alert(666)
-                   this._updateTopUI();
                 }}></TopHeard>
                 <View style={{
-                    height:this._topHeight() ,
+                    height: this._topHeight(),
                     flexDirection: 'row',
                     alignItems: 'center',
                     borderColor: _backgroundColor,
@@ -225,11 +236,15 @@ export default class Main extends React.Component {
                     <HeardLook topType={type} isFirst="yes" title={' 一 未知'} textMessage={'查看不同'} onClick={() => {
                         alert('查看')
                     }}></HeardLook>
-                    <HeardLook topType={type} imageUrl={'http://7xoaj5.com1.z0.glb.clouddn.com/3_hd171012155632_86NWM.JPG?imageMogr2/auto-orient/strip/quality/75'} title={' 二 未知后的哈市道具卡数据的静安寺'} textMessage={'电话咨询'}
+                    <HeardLook topType={type}
+                               imageUrl={'http://7xoaj5.com1.z0.glb.clouddn.com/3_hd171012155632_86NWM.JPG?imageMogr2/auto-orient/strip/quality/75'}
+                               title={' 二 未知后的哈市道具卡数据的静安寺'} textMessage={'电话咨询'}
                                onClick={() => {
                                    alert('电话')
                                }}></HeardLook>
-                    <HeardLook topType={type} imageUrl={'http://7xoaj5.com1.z0.glb.clouddn.com/3_hd171012153421_59NWM.JPG?imageMogr2/auto-orient/strip/quality/75'} title={' 三 未知的SD卡商机漏斗静安寺里肯定'} textMessage={'电话咨询'}
+                    <HeardLook topType={type}
+                               imageUrl={'http://7xoaj5.com1.z0.glb.clouddn.com/3_hd171012153421_59NWM.JPG?imageMogr2/auto-orient/strip/quality/75'}
+                               title={' 三 未知的SD卡商机漏斗静安寺里肯定'} textMessage={'电话咨询'}
                                onClick={() => {
                                    alert('查询')
                                }}></HeardLook>
@@ -258,6 +273,7 @@ export default class Main extends React.Component {
                 <SectionList
 
                     ref={this._captureSectionRef}
+                    onEndReachedThreshold={this.myUpdate}
                     /* keyExtractor={this._keyExtractor} */
                     onViewableItemsChanged={this._onViewableItemsChanged}
                     renderItem={this._renderItemComponent}

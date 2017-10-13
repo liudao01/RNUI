@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import {View, Text, Dimensions, Image, TouchableOpacity, StyleSheet} from 'react-native'
 import {_baseColor, _getHeight, _getWidth, _backgroundColor} from '../utils/config';
 const {height, width} = Dimensions.get('window')
-var itemHeight = 200;
+var itemHeight = 150;
 export default class HeardLook extends React.Component {
     static defaultProps = {
         topType: true,
@@ -133,18 +133,18 @@ const styles = StyleSheet.create({
         borderRadius: _getHeight(8)
     },
     itemViewTwo: {
-        marginTop: _getHeight(5),
-        marginBottom: _getHeight(8),
+        marginTop: (5),
+        marginBottom: (8),
         alignItems: 'center',
         justifyContent: 'center',
-        height: _getHeight(30),
-        width: width / 3 - _getWidth(40),
+        height: (30),
+        width: width / 3 - (40),
         backgroundColor: 'red',
-        borderRadius: _getHeight(8)
+        borderRadius: (8)
     },
     carImgStyle: {
-        width: _getWidth(100),
-        height: _getHeight(100)
+        width: (80),
+        height: (80)
     }
 
 })
