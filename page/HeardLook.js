@@ -25,19 +25,15 @@ export default class HeardLook extends React.Component {
     }
 
     _imageUrlIsNot = (mimageUrl, topType) => {
-        console.log("传入的 topType = " + topType);
+        // console.log("传入的 topType = " + topType);
         if (!topType || mimageUrl == "" || mimageUrl == null || mimageUrl == undefined) {
             itemHeight = 80;
             return (null);
         } else {
-            // console.log("传入的 mimageUrl = " + mimageUrl);
-            return <Image style={styles.carImgStyle}  source={{
+            console.log("传入的 mimageUrl = " + mimageUrl);
+            return <Image style={styles.carImgStyle} source={{
                 uri: mimageUrl,
-                method: 'POST',
-                headers: {
-                    Pragma: 'no-cache'
-                },
-                body: 'Your Body goes here'
+                cache: 'force-cache'
             }}/>
             // return (null);
         }
@@ -123,7 +119,7 @@ const styles = StyleSheet.create({
     }
     ,
     itemText: {
-        fontSize: 10,
+        fontSize: 8,
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: (20),

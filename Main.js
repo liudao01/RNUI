@@ -47,6 +47,7 @@ export default class Main extends React.Component {
 
         this.state = {
             selectSection: 0,
+            myType:true
         };
     }
 
