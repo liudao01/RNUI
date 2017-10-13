@@ -30,7 +30,7 @@ export default class HeardLook extends React.Component {
             itemHeight = 80;
             return (null);
         } else {
-            console.log("传入的 mimageUrl = " + mimageUrl);
+            // console.log("传入的 mimageUrl = " + mimageUrl);
             return <Image style={styles.carImgStyle} source={{
                 uri: mimageUrl,
                 cache: 'force-cache'
@@ -52,7 +52,7 @@ export default class HeardLook extends React.Component {
                 </Text>
             </View>
         } else {
-            console.log(isfirst);
+            // console.log(isfirst);
             return <View style={styles.firstTextStyle}>
                 <Text numberOfLines={2} style={styles.itemText}>
                     {title}
