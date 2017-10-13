@@ -98,10 +98,8 @@ export default class Main extends React.Component {
         
         var screenWidth = Dimensions.get('window').width;
         var viewableCount = Math.floor(screenWidth/SectionChooseList_ITEM_WIDTH); 
-        
-        if (Math.abs(index - viewableCount) >= ) {
-            this._sectionChooseListRef.scrollToIndex({viewPosition: 1, index: Number(index)});
-        }
+        index = Math.max(0,index -= viewableCount);
+        this._sectionChooseListRef.scrollToIndex({viewPosition: 0, index: Number(index)});
     };
 
     _updateSelectSection = (index) => {
