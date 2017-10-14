@@ -39,11 +39,10 @@ export default class HeardLook extends React.Component {
                 uri: mimageUrl,
                 cache: 'force-cache'
             }}/>
-            // return (null);
         }
     }
 
-    _isFirst = (isfirst, title) => {
+/*    _isFirst = (isfirst, title) => {
 
         console.log("传入的 imageUrl = " + imageUrl);
         if (isfirst == "" || isfirst == null || isfirst == undefined) {
@@ -63,11 +62,8 @@ export default class HeardLook extends React.Component {
             </View>
 
         }
-    }
+    }*/
 
-    // componentWillReceiveProps() {
-    //
-    // }
     render() {
         var {topType, imageUrl, title, textMessage, onClick} = this.props
         return (

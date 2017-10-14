@@ -12,9 +12,9 @@ import HeardLook from './page/HeardLook';//导入头部的选择页面
 // const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
 
 const VIEWABILITY_CONFIG = {
-  minimumViewTime: 3000,
-  viewAreaCoveragePercentThreshold: 100,
-  waitForInteraction: true,
+    minimumViewTime: 3000,
+    viewAreaCoveragePercentThreshold: 100,
+    waitForInteraction: true,
 };
 
 var type = true;//顶部ui是否显示图片样式
@@ -47,7 +47,7 @@ export default class Main extends React.Component {
 
         this.state = {
             selectSection: 0,
-            myType:true
+            myType: true
         };
     }
 
@@ -105,7 +105,7 @@ export default class Main extends React.Component {
 
     //横向item的点击事件
     _itemClick = (item, index) => {
-        this._isClickAction = false;        
+        this._isClickAction = false;
         this.setState({selectSection: index});
         this._updateSelectSection(index);
         this._isClickAction = true;
@@ -122,7 +122,10 @@ export default class Main extends React.Component {
                         console.log(this.state.selectSection)
                         // console.log((index)
                     }
-                    <Text style={{fontSize:14, color: this.state.selectSection == index ? '#FF5A5A' : '#999999'}}>{item.title}</Text>
+                    <Text style={{
+                        fontSize: 14,
+                        color: this.state.selectSection == index ? '#FF5A5A' : '#999999'
+                    }}>{item.title}</Text>
                     <View style={styles.itemViewView}></View>
                 </View>
             </TouchableOpacity>
@@ -189,7 +192,7 @@ export default class Main extends React.Component {
         // console.log("调用的type = " + type);
         // this.forceUpdate();
         this.setState({
-            myType:flag
+            myType: flag
         });
     }
 
@@ -219,9 +222,10 @@ export default class Main extends React.Component {
                     borderBottomWidth: 1,
                     borderTopWidth: 1
                 }}>
-                    <HeardLook topType={this.state.myType} isFirst="yes" title={' 一 未知'} textMessage={'查看不同'} onClick={() => {
-                        alert('查看')
-                    }}></HeardLook>
+                    <HeardLook topType={this.state.myType} isFirst="yes" title={' 一 未知'} textMessage={'查看不同'}
+                               onClick={() => {
+                                   alert('查看')
+                               }}></HeardLook>
                     <HeardLook topType={this.state.myType}
                                imageUrl={'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1525546566,2404337493&fm=27&gp=0.jpg'}
                                title={' 二 未知后的哈市道具卡数据的静安寺'} textMessage={'电话咨询'}
@@ -260,7 +264,7 @@ export default class Main extends React.Component {
                     renderSectionHeader={this._renderSectionHeader}
                     stickySectionHeadersEnabled={true}
                     sections={this._dataSource}
-                   /* viewabilityConfig={VIEWABILITY_CONFIG}*/
+                    /* viewabilityConfig={VIEWABILITY_CONFIG}*/
                 />
             </View>
             //   </ContentWrapper>
