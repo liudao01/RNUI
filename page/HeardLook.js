@@ -25,19 +25,6 @@ export default class HeardLook extends React.Component {
         }
     }
 
-    shouldComponentUpdate() {
-        //
-        // if (isNeedUpdate) {
-        //
-        //     isNeedUpdate = false;
-        //     return true;
-        // } else {
-        //
-        //     // isNeedUpdate = false;
-        //     return false;
-        // }
-        return true;
-    }
 
     _imageUrlIsNot = (mimageUrl, topType) => {
         // console.log("传入的 topType = " + topType);
