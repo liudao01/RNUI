@@ -7,7 +7,8 @@ import {View, Text, Dimensions, Image, TouchableOpacity, StyleSheet} from 'react
 import {_baseColor, _getHeight, _getWidth, _backgroundColor} from '../utils/config';
 const {height, width} = Dimensions.get('window')
 var itemHeight = 150;
-var imageUrl;
+var currentImage = "";
+var isNeedUpdate = true;
 export default class HeardLook extends React.Component {
     static defaultProps = {
         topType: true,
@@ -24,12 +25,28 @@ export default class HeardLook extends React.Component {
         }
     }
 
+    shouldComponentUpdate() {
+        //
+        // if (isNeedUpdate) {
+        //
+        //     isNeedUpdate = false;
+        //     return true;
+        // } else {
+        //
+        //     // isNeedUpdate = false;
+        //     return false;
+        // }
+        return true;
+    }
+
     _imageUrlIsNot = (mimageUrl, topType) => {
         // console.log("传入的 topType = " + topType);
         if (!topType || mimageUrl == "" || mimageUrl == null || mimageUrl == undefined) {
             itemHeight = 80;
+            isNeedUpdate = true;
             return (null);
         } else {
+            isNeedUpdate = true;
             // console.log("传入的 mimageUrl = " + mimageUrl);
             return <Image style={styles.carImgStyle} source={{
                 uri: mimageUrl,
@@ -41,7 +58,7 @@ export default class HeardLook extends React.Component {
 
     _isFirst = (isfirst, title) => {
 
-        // console.log("传入的 imageUrl = " + imageUrl);
+        console.log("传入的 imageUrl = " + imageUrl);
         if (isfirst == "" || isfirst == null || isfirst == undefined) {
             return <View style={styles.firstTextStyle}>
                 <Text numberOfLines={2} style={styles.itemText}>
@@ -52,7 +69,6 @@ export default class HeardLook extends React.Component {
                 </Text>
             </View>
         } else {
-            // console.log(isfirst);
             return <View style={styles.firstTextStyle}>
                 <Text numberOfLines={2} style={styles.itemText}>
                     {title}

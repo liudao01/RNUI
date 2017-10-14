@@ -186,8 +186,11 @@ export default class Main extends React.Component {
     //更新顶部UI
     _updateTopUI = (flag) => {
         type = flag;
-        console.log("调用的type = " + type);
-        this.forceUpdate();
+        // console.log("调用的type = " + type);
+        // this.forceUpdate();
+        this.setState({
+            myType:flag
+        });
     }
 
     render() {
@@ -216,17 +219,17 @@ export default class Main extends React.Component {
                     borderBottomWidth: 1,
                     borderTopWidth: 1
                 }}>
-                    <HeardLook topType={type} isFirst="yes" title={' 一 未知'} textMessage={'查看不同'} onClick={() => {
+                    <HeardLook topType={this.state.myType} isFirst="yes" title={' 一 未知'} textMessage={'查看不同'} onClick={() => {
                         alert('查看')
                     }}></HeardLook>
-                    <HeardLook topType={type}
-                               imageUrl={'http://7xoaj5.com1.z0.glb.clouddn.com/3_hd171012155632_86NWM.JPG?imageMogr2/auto-orient/strip/quality/75'}
+                    <HeardLook topType={this.state.myType}
+                               imageUrl={'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1525546566,2404337493&fm=27&gp=0.jpg'}
                                title={' 二 未知后的哈市道具卡数据的静安寺'} textMessage={'电话咨询'}
                                onClick={() => {
                                    alert('电话')
                                }}></HeardLook>
-                    <HeardLook topType={type}
-                               imageUrl={'http://7xoaj5.com1.z0.glb.clouddn.com/3_hd171012153421_59NWM.JPG?imageMogr2/auto-orient/strip/quality/75'}
+                    <HeardLook topType={this.state.myType}
+                               imageUrl={'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1525546566,2404337493&fm=27&gp=0.jpg'}
                                title={' 三 未知的SD卡商机漏斗静安寺里肯定'} textMessage={'电话咨询'}
                                onClick={() => {
                                    alert('查询')
