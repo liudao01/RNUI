@@ -83,11 +83,7 @@ export default class Main extends React.Component {
 
         var index = info.viewableItems[0].section.key;
 
-        if (index == 0 && type == false) {
-            this._updateTopUI(true);
-        } else if (index > 0 && type == true) {
-            this._updateTopUI(false);
-        }
+
 
         this._updateSelectSection(index);
         if (this._isClickAction && index === this.state.selectSection) {
@@ -100,6 +96,12 @@ export default class Main extends React.Component {
         var viewableCount = Math.floor(screenWidth/SectionChooseList_ITEM_WIDTH) - 1; 
         index = Math.max(0,index -= viewableCount);
         this._sectionChooseListRef.scrollToIndex({viewPosition: 0, index: Number(index)});
+
+        // if (index == 0 && type == false) {
+        //     this._updateTopUI(true);
+        // } else if (index > 0 && type == true) {
+        //     this._updateTopUI(false);
+        // }
     };
 
     _updateSelectSection = (index) => {
