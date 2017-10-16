@@ -19,11 +19,26 @@ const VIEWABILITY_CONFIG = {
 
 var type = true;//顶部ui是否显示图片样式
 const SectionChooseList_ITEM_WIDTH = 86;
-var currentIndex = 1;
+var ScreenWidth = Dimensions.get('window').width;
+const ViewableCount = Math.floor(ScreenWidth / SectionChooseList_ITEM_WIDTH) - 1;
 
 export default class Main extends React.Component {
     constructor(props) {
         super(props);
+        let uri = 'http://58.58.62.227:81/truck/api/v2/truck/compareTrucks?truckid1=104625&truckid2=105054';
+        fetch(uri).then((response) => {
+            this.responseURL = response.url;
+            this.responseHeaders = response.headers;
+            return response.text();
+        }).then((response) => {
+            this.setState({
+                trucksInfo: [
+                    response[0].truckOne,
+                    response[1].truckTwo,
+                ],
+                data: response[2]
+            });
+        });
 
         baseItem = {
             groupName: "骨架检查",
@@ -79,18 +94,19 @@ export default class Main extends React.Component {
         //         }
         //     }
         // }
-        for (var index = 0; index < 10; index++) {
-            var item0 = Object.assign({}, baseItem);
-            item0.key = index;
-            for (var item1 in item0.data) {
-                if (!item0.data.hasOwnProperty(item1)) break;
-                var element = item0.data[item1];
-                element.display = true;
-            }
-            this._dataSource.push(item0);
-        }
+        // for (var index = 0; index < 10; index++) {
+        //     var item0 = Object.assign({}, baseItem);
+        //     item0.key = index;
+        //     for (var item1 in item0.data) {
+        //         if (!item0.data.hasOwnProperty(item1)) break;
+        //         var element = item0.data[item1];
+        //         element.display = true;
+        //     }
+        //     this._dataSource.push(item0);
+        // }
 
         this.state = {
+            data: this._dataSource,
             displayEqualItem: true,
             selectSection: 0,
             myType: true
@@ -127,8 +143,10 @@ export default class Main extends React.Component {
         if (!info.viewableItems.length) return;
 
         var index = info.viewableItems[0].section.key;
+        if (!index) index = 0;
+        if (this.state.selectSection == index) return;
 
-        if (index != currentIndex) {
+        if (index != this.state.selectSection) {
             currentIndex = index;
             if (index == 0 && type == false) {
                 this._updateTopUI(true);
@@ -145,9 +163,7 @@ export default class Main extends React.Component {
 
         var totalIndex = this._dataSource.length - 1;
 
-        var screenWidth = Dimensions.get('window').width;
-        var viewableCount = Math.floor(screenWidth / SectionChooseList_ITEM_WIDTH) - 1;
-        index = Math.min(Math.max(0, index -= viewableCount));
+        index = Math.min(Math.max(0, index -= ViewableCount));
         // console.log(index, totalIndex, viewableCount);
 
         // if (index == (totalIndex-viewableCount)) {
@@ -267,6 +283,20 @@ export default class Main extends React.Component {
         //   wrapperProps.keyboardDismissMode = 'interactive';
         // }
         const displayEqualItemText = this.state.displayEqualItem ? '查看不同' : '查看全部';
+        const filteredSectionData = [];
+        for (let ii = 0; ii < this._dataSource.length; ii++) {
+            const filter = (item) => (
+                this.state.displayEqualItem ? this.state.displayEqualItem : (!item.isEqual)
+            );
+            let sectionItem = this._dataSource[ii];
+            const filteredData = sectionItem.data.filter(filter);
+            filteredSectionData.push({
+                groupName: sectionItem.groupName,
+                key: ii,
+                data: filteredData
+            })
+        }
+
         return (
             <View style={styles.pageContainer}>
                 <TopHeard title={'车辆对比'} textStyle={{ fontSize: 20 }} onClick_Left={() => {
@@ -282,29 +312,21 @@ export default class Main extends React.Component {
                 }}>
                     <HeardLook topType={this.state.myType} isFirst="yes" title={' 一 未知'} textMessage={displayEqualItemText}
                         onClick={() => {
+                            this._scrollToSection(0);
                             var displayEqualItem = !this.state.displayEqualItem;
-                            for (var key0 in this._dataSource) {
-                                if (!this._dataSource.hasOwnProperty(key0)) break;
-                                var item0 = this._dataSource[key0]
-                                for (var key1 in item0.data) {
-                                    if (!item0.data.hasOwnProperty(key1)) break;
-                                    var item1 = item0.data[key1];
-                                    if (item1.isEqual) {
-                                        item1.display = displayEqualItem;
-                                    }
-                                }
-                            }
-                            this.setState({ displayEqualItem: displayEqualItem });
+                            this.setState({
+                                displayEqualItem: displayEqualItem,
+                            });
                         }}></HeardLook>
                     <HeardLook topType={this.state.myType}
-                        imageUrl={'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1525546566,2404337493&fm=27&gp=0.jpg'}
-                        title={' 二 未知后的哈市道具卡数据的静安寺'} textMessage={'电话咨询'}
+                        imageUrl={this.data.trucksInfo[0].imgThumbnail}
+                        title={this.data.turcksInfo[0].titleStr} textMessage={'电话咨询'}
                         onClick={() => {
                             alert('电话')
                         }}></HeardLook>
                     <HeardLook topType={this.state.myType}
-                        imageUrl={'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1525546566,2404337493&fm=27&gp=0.jpg'}
-                        title={' 三 未知的SD卡商机漏斗静安寺里肯定'} textMessage={'电话咨询'}
+                        imageUrl={this.data.trucksInfo[1].imgThumbnail}
+                        title={this.data.turcksInfo[1].titleStr} textMessage={'电话咨询'}
                         onClick={() => {
                             alert('查询')
                         }}></HeardLook>
@@ -323,7 +345,7 @@ export default class Main extends React.Component {
                             offset: SectionChooseList_ITEM_WIDTH * index,
                             index
                         })}
-                        data={this._dataSource} />
+                        data={filteredSectionData} />
                 </View>
                 <SectionList
                     style={styles.sectionList}
@@ -333,7 +355,7 @@ export default class Main extends React.Component {
                     renderItem={this._renderItemComponent}
                     renderSectionHeader={this._renderSectionHeader}
                     stickySectionHeadersEnabled={true}
-                    sections={this._dataSource}
+                    sections={filteredSectionData}
                 /* viewabilityConfig={VIEWABILITY_CONFIG}*/
                 />
             </View>
