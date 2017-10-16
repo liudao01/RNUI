@@ -27,6 +27,7 @@ export default class HeardLook extends React.Component {
 
 
     _imageUrlIsNot = (mimageUrl, topType) => {
+
         // console.log("传入的 topType = " + topType);
         if (!topType || mimageUrl == "" || mimageUrl == null || mimageUrl == undefined) {
             itemHeight = 80;
