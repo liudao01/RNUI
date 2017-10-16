@@ -29,88 +29,44 @@ export default class Main extends React.Component {
         fetch(uri).then((response) => {
             this.responseURL = response.url;
             this.responseHeaders = response.headers;
-            return response.text();
+            return response.json();
         }).then((response) => {
+            let responseData = response.data;
+            let sectionData = responseData.slice(1);
+            let filteredSectionData = [];
+            for (let ii = 0; ii < sectionData.length; ii++) {
+                const filter = (item) => (
+                    (!item.isEqual)
+                );
+                let sectionItem = sectionData[ii];
+                sectionItem.key=ii;
+                const filteredData = sectionItem.data.filter(filter);
+                filteredSectionData.push({
+                    groupName: sectionItem.groupName,
+                    key: ii,
+                    data: filteredData
+                })
+            }
+
             this.setState({
                 trucksInfo: [
-                    response[0].truckOne,
-                    response[1].truckTwo,
+                    responseData[0].truckOne,
+                    responseData[0].truckTwo,
                 ],
-                data: response[2]
+                sectionData: sectionData,
+                filteredSectionData: filteredSectionData
             });
         });
 
-        baseItem = {
-            groupName: "骨架检查",
-            data: [
-                {
-                    title: '前围骨架',
-                    value: [
-                        "2014-09-19",
-                        "2015-09-13",
-                    ],
-                    isEqual: false
-                },
-                {
-                    title: '前围骨架',
-                    value: [
-                        "2014-09-19",
-                        "2015-09-13",
-                    ],
-                    isEqual: true
-                },
-                {
-                    title: '前围骨架',
-                    value: [
-                        "2014-09-19",
-                        "2015-09-13",
-                    ],
-                    isEqual: false
-                },
-                {
-                    title: '前围骨架',
-                    value: [
-                        "2014-09-19",
-                        "2015-09-13",
-                    ],
-                    isEqual: true
-                },
-                {
-                    title: '前围骨架',
-                    value: [
-                        "2014-09-19",
-                        "2015-09-13",
-                    ],
-                    isEqual: true
-                },
-            ]
-        }
-        // for (var index = 0; index < 50; index++) {
-        //     var elements = Object.assign({}, baseItem);
-        //     for (var item1 in elements) {
-        //         if (elements.hasOwnProperty(item1)) {
-        //             var element = elements[item1];
-        //             element.display = true;                    
-        //         }
-        //     }
-        // }
-        // for (var index = 0; index < 10; index++) {
-        //     var item0 = Object.assign({}, baseItem);
-        //     item0.key = index;
-        //     for (var item1 in item0.data) {
-        //         if (!item0.data.hasOwnProperty(item1)) break;
-        //         var element = item0.data[item1];
-        //         element.display = true;
-        //     }
-        //     this._dataSource.push(item0);
-        // }
-
         this.state = {
-            data: this._dataSource,
+            trucksInfo:[],
+            sectionData: [],
+            filteredSectionData: [],
             displayEqualItem: true,
             selectSection: 0,
             myType: true
         };
+        
     }
 
     _isClickAction = false;
@@ -283,19 +239,14 @@ export default class Main extends React.Component {
         //   wrapperProps.keyboardDismissMode = 'interactive';
         // }
         const displayEqualItemText = this.state.displayEqualItem ? '查看不同' : '查看全部';
-        const filteredSectionData = [];
-        for (let ii = 0; ii < this._dataSource.length; ii++) {
-            const filter = (item) => (
-                this.state.displayEqualItem ? this.state.displayEqualItem : (!item.isEqual)
-            );
-            let sectionItem = this._dataSource[ii];
-            const filteredData = sectionItem.data.filter(filter);
-            filteredSectionData.push({
-                groupName: sectionItem.groupName,
-                key: ii,
-                data: filteredData
-            })
-        }
+        const sectionData = this.state.displayEqualItem ? this.state.sectionData : this.state.filteredSectionData;
+
+        const truck0 = this.state.trucksInfo.length>1 ? this.state.trucksInfo[0] : null
+        const truck1 = this.state.trucksInfo.length>1 ? this.state.trucksInfo[1] : null
+        const imgThumbnail0 = truck0 && truck0.hasOwnProperty('imgThumbnail') ? truck0.imgThumbnail : '';
+        const imgThumbnail1 = truck1 && truck1.hasOwnProperty('imgThumbnail') ? truck1.imgThumbnail : '';
+        const title0 = truck0 && truck0.hasOwnProperty('titleStr') ? truck0.titleStr : '';
+        const title1 = truck0 && truck1.hasOwnProperty('titleStr') ? truck1.titleStr : '';
 
         return (
             <View style={styles.pageContainer}>
@@ -319,14 +270,14 @@ export default class Main extends React.Component {
                             });
                         }}></HeardLook>
                     <HeardLook topType={this.state.myType}
-                        imageUrl={this.data.trucksInfo[0].imgThumbnail}
-                        title={this.data.turcksInfo[0].titleStr} textMessage={'电话咨询'}
+                        imageUrl={imgThumbnail0}
+                        title={title0} textMessage={'电话咨询'}
                         onClick={() => {
                             alert('电话')
                         }}></HeardLook>
                     <HeardLook topType={this.state.myType}
-                        imageUrl={this.data.trucksInfo[1].imgThumbnail}
-                        title={this.data.turcksInfo[1].titleStr} textMessage={'电话咨询'}
+                        imageUrl={imgThumbnail1}
+                        title={title1} textMessage={'电话咨询'}
                         onClick={() => {
                             alert('查询')
                         }}></HeardLook>
@@ -345,7 +296,7 @@ export default class Main extends React.Component {
                             offset: SectionChooseList_ITEM_WIDTH * index,
                             index
                         })}
-                        data={filteredSectionData} />
+                        data={sectionData} />
                 </View>
                 <SectionList
                     style={styles.sectionList}
@@ -355,7 +306,7 @@ export default class Main extends React.Component {
                     renderItem={this._renderItemComponent}
                     renderSectionHeader={this._renderSectionHeader}
                     stickySectionHeadersEnabled={true}
-                    sections={filteredSectionData}
+                    sections={sectionData}
                 /* viewabilityConfig={VIEWABILITY_CONFIG}*/
                 />
             </View>
