@@ -11,11 +11,11 @@ import HeardLook from './page/HeardLook';//导入头部的选择页面
 
 // const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
 
-// const VIEWABILITY_CONFIG = {
-//   minimumViewTime: 3000,
-//   viewAreaCoveragePercentThreshold: 100,
-//   waitForInteraction: true,
-// };
+const VIEWABILITY_CONFIG = {
+  minimumViewTime: 3000,
+  viewAreaCoveragePercentThreshold: 100,
+  waitForInteraction: true,
+};
 
 var type = true;//顶部ui是否显示图片样式
 const SectionChooseList_ITEM_WIDTH = 86;
@@ -40,7 +40,7 @@ export default class Main extends React.Component {
                 {title: '激情信息', okone: false, oktwo: false},
                 {title: '超人信息', okone: false, oktwo: false},]
         }
-        for (var index = 0; index < 5; index++) {
+        for (var index = 0; index < 20; index++) {
             var element = Object.assign({}, baseItem);
             element.key = index;
             this._dataSource.push(element);
@@ -48,7 +48,7 @@ export default class Main extends React.Component {
 
         this.state = {
             selectSection: 0,
-            myType: true
+            myType:true
         };
     }
 
@@ -97,7 +97,7 @@ export default class Main extends React.Component {
         var total = this._dataSource.length;
         
         var screenWidth = Dimensions.get('window').width;
-        var viewableCount = Math.floor(screenWidth/SectionChooseList_ITEM_WIDTH); 
+        var viewableCount = Math.floor(screenWidth/SectionChooseList_ITEM_WIDTH) - 1; 
         index = Math.max(0,index -= viewableCount);
         this._sectionChooseListRef.scrollToIndex({viewPosition: 0, index: Number(index)});
     };
@@ -262,7 +262,7 @@ export default class Main extends React.Component {
                     renderSectionHeader={this._renderSectionHeader}
                     stickySectionHeadersEnabled={true}
                     sections={this._dataSource}
-                    /* viewabilityConfig={VIEWABILITY_CONFIG} */
+                   /* viewabilityConfig={VIEWABILITY_CONFIG}*/
                 />
             </View>
             //   </ContentWrapper>
