@@ -112,6 +112,7 @@ export default class Main extends React.Component {
         // }
     };
 
+
     _updateSelectSection = (index) => {
         if (!this._isClickAction) {
             this.setState({selectSection: index});
