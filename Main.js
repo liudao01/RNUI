@@ -1,54 +1,99 @@
 /**
  * 由 FOX 创建于 2017/09/23
  */
-import React, {Component} from 'react'
-import {View, SectionList, FlatList, TouchableOpacity, StyleSheet, Text, Image, Dimensions, Alert} from 'react-native'
-import {_baseColor, _getWidth, _getHeight, _backgroundColor} from './utils/config'
+import React, { Component } from 'react'
+import { View, SectionList, FlatList, TouchableOpacity, StyleSheet, Text, Image, Dimensions, Alert } from 'react-native'
+import { _baseColor, _getWidth, _getHeight, _backgroundColor } from './utils/config'
 import TopHeard from './page/TopHeard';//头部页面
-import {_jude, _judeBackColor} from './utils/Judge';//导入判断接口
-const {height, width} = Dimensions.get('window')
+import { _jude, _judeBackColor } from './utils/Judge';//导入判断接口
+const { height, width } = Dimensions.get('window')
 import HeardLook from './page/HeardLook';//导入头部的选择页面
 
 // const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
 
 const VIEWABILITY_CONFIG = {
-  minimumViewTime: 3000,
-  viewAreaCoveragePercentThreshold: 100,
-  waitForInteraction: true,
+    minimumViewTime: 3000,
+    viewAreaCoveragePercentThreshold: 100,
+    waitForInteraction: true,
 };
 
 var type = true;//顶部ui是否显示图片样式
 const SectionChooseList_ITEM_WIDTH = 86;
+var currentIndex = 1;
 
 export default class Main extends React.Component {
     constructor(props) {
         super(props);
 
         baseItem = {
-            title: "骨架检查", data: [
-                {title: '前围骨架', okone: true, oktwo: true},
-                {title: '悬挂系统工作是否无异常', okone: false, oktwo: false},
-                {title: '后横梁', okone: true, oktwo: false},
-                {title: '后纵梁', okone: false, oktwo: true},
-                {title: '爸爸信息', okone: false, oktwo: false},
-                {title: '悟空信息', okone: false, oktwo: false},
-                {title: '闪光信息', okone: false, oktwo: false},
-                {title: '攻壳信息', okone: false, oktwo: false},
-                {title: '速度信息', okone: false, oktwo: false},
-                {title: '蝙蝠信息', okone: false, oktwo: false},
-                {title: '攻壳信息', okone: false, oktwo: false},
-                {title: '激情信息', okone: false, oktwo: false},
-                {title: '超人信息', okone: false, oktwo: false},]
+            groupName: "骨架检查",
+            data: [
+                {
+                    title: '前围骨架',
+                    value: [
+                        "2014-09-19",
+                        "2015-09-13",
+                    ],
+                    isEqual: false
+                },
+                {
+                    title: '前围骨架',
+                    value: [
+                        "2014-09-19",
+                        "2015-09-13",
+                    ],
+                    isEqual: true
+                },
+                {
+                    title: '前围骨架',
+                    value: [
+                        "2014-09-19",
+                        "2015-09-13",
+                    ],
+                    isEqual: false
+                },
+                {
+                    title: '前围骨架',
+                    value: [
+                        "2014-09-19",
+                        "2015-09-13",
+                    ],
+                    isEqual: true
+                },
+                {
+                    title: '前围骨架',
+                    value: [
+                        "2014-09-19",
+                        "2015-09-13",
+                    ],
+                    isEqual: true
+                },
+            ]
         }
-        for (var index = 0; index < 20; index++) {
-            var element = Object.assign({}, baseItem);
-            element.key = index;
-            this._dataSource.push(element);
+        // for (var index = 0; index < 50; index++) {
+        //     var elements = Object.assign({}, baseItem);
+        //     for (var item1 in elements) {
+        //         if (elements.hasOwnProperty(item1)) {
+        //             var element = elements[item1];
+        //             element.display = true;                    
+        //         }
+        //     }
+        // }
+        for (var index = 0; index < 10; index++) {
+            var item0 = Object.assign({}, baseItem);
+            item0.key = index;
+            for (var item1 in item0.data) {
+                if (!item0.data.hasOwnProperty(item1)) break;
+                var element = item0.data[item1];
+                element.display = true;
+            }
+            this._dataSource.push(item0);
         }
 
         this.state = {
+            displayEqualItem: true,
             selectSection: 0,
-            myType:true
+            myType: true
         };
     }
 
@@ -68,7 +113,7 @@ export default class Main extends React.Component {
 
     _scrollToSection(sectionIndex) {
         this._sectionListRef
-            .scrollToLocation({sectionIndex: sectionIndex, itemIndex: 0, viewOffset: 35});
+            .scrollToLocation({ sectionIndex: sectionIndex, itemIndex: 0, viewOffset: 35 });
     }
 
     _onViewableItemsChanged = (info) => {
@@ -85,13 +130,13 @@ export default class Main extends React.Component {
 
         if (index != currentIndex) {
             currentIndex = index;
-        if (index == 0 && type == false) {
-            this._updateTopUI(true);
-        } else if (index > 0 && type == true) {
-            this._updateTopUI(false);
+            if (index == 0 && type == false) {
+                this._updateTopUI(true);
+            } else if (index > 0 && type == true) {
+                this._updateTopUI(false);
+            }
         }
-        }
-        console.log("调用了: " + index);
+        // console.log("调用了: " + index);
 
         this._updateSelectSection(index);
         if (this._isClickAction && index === this.state.selectSection) {
@@ -99,42 +144,45 @@ export default class Main extends React.Component {
         }
 
         var totalIndex = this._dataSource.length - 1;
-        
+
         var screenWidth = Dimensions.get('window').width;
-        var viewableCount = Math.floor(screenWidth/SectionChooseList_ITEM_WIDTH) - 1; 
-        index = Math.min(Math.max(0,index -= viewableCount));
-        console.log(index,totalIndex, viewableCount);
+        var viewableCount = Math.floor(screenWidth / SectionChooseList_ITEM_WIDTH) - 1;
+        index = Math.min(Math.max(0, index -= viewableCount));
+        // console.log(index, totalIndex, viewableCount);
 
         // if (index == (totalIndex-viewableCount)) {
-            this._sectionChooseListRef.scrollToIndex({viewPosition: 1, index: Number(index)});        
+        // this._sectionChooseListRef.scrollToIndex({ viewPosition: 1, index: Number(index) });
         // } else {
-        //     this._sectionChooseListRef.scrollToIndex({viewPosition: 0, index: Number(index)});
+        this._sectionChooseListRef.scrollToIndex({ viewPosition: 0, index: Number(index) });
         // }
     };
 
 
     _updateSelectSection = (index) => {
         if (!this._isClickAction) {
-            this.setState({selectSection: index});
+            this.setState({
+                selectSection: index,
+                myType: type
+            });
         }
     }
 
     //横向item的点击事件
     _itemClick = (item, index) => {
-        this._isClickAction = false;        
-        this.setState({selectSection: index});
+        this._isClickAction = false;
+        this.setState({ selectSection: index });
         this._updateSelectSection(index);
         this._isClickAction = true;
         this._scrollToSection(index);
     }
 
     //第一个横向的item
-    _renderItem = ({item, index}) => {
+    _renderItem = ({ item, index }) => {
         return (
             <TouchableOpacity
                 onPress={this._itemClick.bind(this, item, index)}/*{this.itemClick.bind(this, item, index) }*/>
                 <View style={styles.itemView}>
-                    <Text style={{fontSize:14, color: this.state.selectSection == index ? '#FF5A5A' : '#999999'}}>{item.title}</Text>
+                    <Text style={{ fontSize: 14, color: this.state.selectSection == index ? '#FF5A5A' : '#999999' }}>{item.groupName}</Text>
                     <View style={styles.itemViewView}></View>
                 </View>
             </TouchableOpacity>
@@ -142,14 +190,18 @@ export default class Main extends React.Component {
     }
 
     //竖向列表的item
-    _renderItemComponent = ({item, index}) => {
+    _renderItemComponent = ({ item, index }) => {
+        var value0 = item.value[0];
+        var value1 = item.value[1];
+        // var value1 = _jude(item.value[1]);
+        // console.log(item);
         return (
-            <View style={[styles.itemMessageView, {borderTopWidth: index == 0 ? 0 : 1}]}>
+            <View style={[styles.itemMessageView, { borderTopWidth: index == 0 ? 0 : 1 }]}>
                 <View style={styles.itemMessageViewItwmOne}>
                     <Text
-                        style={{fontSize: 12, paddingLeft: 14, paddingRight: 14, color: '#999999'}}>{item.title}</Text>
+                        style={{ fontSize: 12, paddingLeft: 14, paddingRight: 14, color: '#999999' }}>{item.title}</Text>
                 </View>
-                <View style={{flex: 2, flexDirection: 'row', backgroundColor: _judeBackColor(item.okone, item.oktwo)}}>
+                <View style={{ flex: 2, flexDirection: 'row', backgroundColor: _judeBackColor(item.isEqual) }}>
                     <View style={{
                         flex: 1,
                         justifyContent: 'center',
@@ -158,18 +210,18 @@ export default class Main extends React.Component {
                         borderRightWidth: 1
                     }}>
                         <Text
-                            style={{fontSize: 12, color: item.okone ? '#1FB113' : '#FF5A5A'}}>{_jude(item.okone)}</Text>
+                            style={{ fontSize: 12, color: item.okone ? '#1FB113' : '#FF5A5A' }}>{value0}</Text>
                     </View>
-                    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <Text
-                            style={{fontSize: 12, color: item.okone ? '#1FB113' : '#FF5A5A'}}>{_jude(item.oktwo)}</Text>
+                            style={{ fontSize: 12, color: item.okone ? '#1FB113' : '#FF5A5A' }}>{value1}</Text>
                     </View>
                 </View>
             </View>
         );
     }
 
-    _renderSectionHeader = ({section}) => (
+    _renderSectionHeader = ({ section }) => (
         <View style={styles.sectionHeader}>
             {/* <Image source={require('./img/cricle.png')} style={styles.imageStyle}></Image> */}
             <View style={{
@@ -179,8 +231,8 @@ export default class Main extends React.Component {
                 height: 8,
                 borderRadius: 8,
                 backgroundColor: '#666666',
-            }}/>
-            <Text style={styles.textStyle}>{section.title}</Text>
+            }} />
+            <Text style={styles.textStyle}>{section.groupName}</Text>
         </View>/*<Text style={styles.sectionHeader}>{section.title}</Text>*/
     );
 
@@ -200,9 +252,6 @@ export default class Main extends React.Component {
         type = flag;
         // console.log("调用的type = " + type);
         // this.forceUpdate();
-        this.setState({
-            myType: flag
-        });
     }
 
     render() {
@@ -217,10 +266,10 @@ export default class Main extends React.Component {
         //   wrapperProps.keyboardShouldPersistTaps = 'handled';
         //   wrapperProps.keyboardDismissMode = 'interactive';
         // }
-
+        const displayEqualItemText = this.state.displayEqualItem ? '查看不同' : '查看全部';
         return (
             <View style={styles.pageContainer}>
-                <TopHeard title={'车辆对比'} textStyle={{fontSize: 20}} onClick_Left={() => {
+                <TopHeard title={'车辆对比'} textStyle={{ fontSize: 20 }} onClick_Left={() => {
                     alert(666)
                 }}></TopHeard>
                 <View style={{
@@ -231,22 +280,34 @@ export default class Main extends React.Component {
                     borderBottomWidth: 1,
                     borderTopWidth: 1
                 }}>
-                    <HeardLook topType={this.state.myType} isFirst="yes" title={' 一 未知'} textMessage={'查看不同'}
-                               onClick={() => {
-                        alert('查看')
-                    }}></HeardLook>
+                    <HeardLook topType={this.state.myType} isFirst="yes" title={' 一 未知'} textMessage={displayEqualItemText}
+                        onClick={() => {
+                            var displayEqualItem = !this.state.displayEqualItem;
+                            for (var key0 in this._dataSource) {
+                                if (!this._dataSource.hasOwnProperty(key0)) break;
+                                var item0 = this._dataSource[key0]
+                                for (var key1 in item0.data) {
+                                    if (!item0.data.hasOwnProperty(key1)) break;
+                                    var item1 = item0.data[key1];
+                                    if (item1.isEqual) {
+                                        item1.display = displayEqualItem;
+                                    }
+                                }
+                            }
+                            this.setState({ displayEqualItem: displayEqualItem });
+                        }}></HeardLook>
                     <HeardLook topType={this.state.myType}
-                               imageUrl={'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1525546566,2404337493&fm=27&gp=0.jpg'}
-                               title={' 二 未知后的哈市道具卡数据的静安寺'} textMessage={'电话咨询'}
-                               onClick={() => {
-                                   alert('电话')
-                               }}></HeardLook>
+                        imageUrl={'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1525546566,2404337493&fm=27&gp=0.jpg'}
+                        title={' 二 未知后的哈市道具卡数据的静安寺'} textMessage={'电话咨询'}
+                        onClick={() => {
+                            alert('电话')
+                        }}></HeardLook>
                     <HeardLook topType={this.state.myType}
-                               imageUrl={'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1525546566,2404337493&fm=27&gp=0.jpg'}
-                               title={' 三 未知的SD卡商机漏斗静安寺里肯定'} textMessage={'电话咨询'}
-                               onClick={() => {
-                                   alert('查询')
-                               }}></HeardLook>
+                        imageUrl={'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1525546566,2404337493&fm=27&gp=0.jpg'}
+                        title={' 三 未知的SD卡商机漏斗静安寺里肯定'} textMessage={'电话咨询'}
+                        onClick={() => {
+                            alert('查询')
+                        }}></HeardLook>
                 </View>
                 <View>
                     <FlatList
@@ -262,7 +323,7 @@ export default class Main extends React.Component {
                             offset: SectionChooseList_ITEM_WIDTH * index,
                             index
                         })}
-                        data={this._dataSource}/>
+                        data={this._dataSource} />
                 </View>
                 <SectionList
                     style={styles.sectionList}
@@ -273,7 +334,7 @@ export default class Main extends React.Component {
                     renderSectionHeader={this._renderSectionHeader}
                     stickySectionHeadersEnabled={true}
                     sections={this._dataSource}
-                   /* viewabilityConfig={VIEWABILITY_CONFIG}*/
+                /* viewabilityConfig={VIEWABILITY_CONFIG}*/
                 />
             </View>
             //   </ContentWrapper>

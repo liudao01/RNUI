@@ -7,8 +7,8 @@ export const _jude = (justify) =>{
     }
 }
 //判断颜色
-export const _judeBackColor =(judetOne,judeTwo) =>{
-    if(judetOne && judeTwo){
+export const _judeBackColor =(isEqual) =>{
+    if(isEqual){
         return 'white'
     }else{
         return '#FFE8D9'
