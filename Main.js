@@ -12,13 +12,12 @@ import HeardLook from './page/HeardLook';//导入头部的选择页面
 // const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
 
 const VIEWABILITY_CONFIG = {
-    minimumViewTime: 3000,
-    viewAreaCoveragePercentThreshold: 100,
-    waitForInteraction: true,
+  minimumViewTime: 3000,
+  viewAreaCoveragePercentThreshold: 100,
+  waitForInteraction: true,
 };
 
 var type = true;//顶部ui是否显示图片样式
-var currentIndex = 1;
 const SectionChooseList_ITEM_WIDTH = 86;
 
 export default class Main extends React.Component {
@@ -49,7 +48,7 @@ export default class Main extends React.Component {
 
         this.state = {
             selectSection: 0,
-            myType: true
+            myType:true
         };
     }
 
@@ -86,11 +85,11 @@ export default class Main extends React.Component {
 
         if (index != currentIndex) {
             currentIndex = index;
-            if (index == 0 && type == false) {
-                this._updateTopUI(true);
-            } else if (index > 0 && type == true) {
-                this._updateTopUI(false);
-            }
+        if (index == 0 && type == false) {
+            this._updateTopUI(true);
+        } else if (index > 0 && type == true) {
+            this._updateTopUI(false);
+        }
         }
         console.log("调用了: " + index);
 
@@ -99,14 +98,18 @@ export default class Main extends React.Component {
             this._isClickAction = false;
         }
 
-        var total = this._dataSource.length;
-
+        var totalIndex = this._dataSource.length - 1;
+        
         var screenWidth = Dimensions.get('window').width;
-        var viewableCount = Math.floor(screenWidth / SectionChooseList_ITEM_WIDTH) - 1;
-        index = Math.max(0, index -= viewableCount);
-        this._sectionChooseListRef.scrollToIndex({viewPosition: 0, index: Number(index)});
+        var viewableCount = Math.floor(screenWidth/SectionChooseList_ITEM_WIDTH) - 1; 
+        index = Math.min(Math.max(0,index -= viewableCount));
+        console.log(index,totalIndex, viewableCount);
 
-
+        // if (index == (totalIndex-viewableCount)) {
+            this._sectionChooseListRef.scrollToIndex({viewPosition: 1, index: Number(index)});        
+        // } else {
+        //     this._sectionChooseListRef.scrollToIndex({viewPosition: 0, index: Number(index)});
+        // }
     };
 
     _updateSelectSection = (index) => {
@@ -117,7 +120,7 @@ export default class Main extends React.Component {
 
     //横向item的点击事件
     _itemClick = (item, index) => {
-        this._isClickAction = false;
+        this._isClickAction = false;        
         this.setState({selectSection: index});
         this._updateSelectSection(index);
         this._isClickAction = true;
@@ -130,10 +133,7 @@ export default class Main extends React.Component {
             <TouchableOpacity
                 onPress={this._itemClick.bind(this, item, index)}/*{this.itemClick.bind(this, item, index) }*/>
                 <View style={styles.itemView}>
-                    <Text style={{
-                        fontSize: 14,
-                        color: this.state.selectSection == index ? '#FF5A5A' : '#999999'
-                    }}>{item.title}</Text>
+                    <Text style={{fontSize:14, color: this.state.selectSection == index ? '#FF5A5A' : '#999999'}}>{item.title}</Text>
                     <View style={styles.itemViewView}></View>
                 </View>
             </TouchableOpacity>
@@ -232,8 +232,8 @@ export default class Main extends React.Component {
                 }}>
                     <HeardLook topType={this.state.myType} isFirst="yes" title={' 一 未知'} textMessage={'查看不同'}
                                onClick={() => {
-                                   alert('查看')
-                               }}></HeardLook>
+                        alert('查看')
+                    }}></HeardLook>
                     <HeardLook topType={this.state.myType}
                                imageUrl={'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1525546566,2404337493&fm=27&gp=0.jpg'}
                                title={' 二 未知后的哈市道具卡数据的静安寺'} textMessage={'电话咨询'}
@@ -272,7 +272,7 @@ export default class Main extends React.Component {
                     renderSectionHeader={this._renderSectionHeader}
                     stickySectionHeadersEnabled={true}
                     sections={this._dataSource}
-                    /* viewabilityConfig={VIEWABILITY_CONFIG}*/
+                   /* viewabilityConfig={VIEWABILITY_CONFIG}*/
                 />
             </View>
             //   </ContentWrapper>
