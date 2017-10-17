@@ -1,14 +1,16 @@
 /**
  * 由 FOX 创建于 2017/09/23
  */
+
 import React, { Component } from 'react'
-import { View, SectionList, FlatList, TouchableOpacity, StyleSheet, Text, Image, Dimensions, Alert } from 'react-native'
+import ReactNative from 'react-native';
+const { View, SectionList, FlatList, TouchableOpacity, StyleSheet, Text, Image, Dimensions, Alert } = ReactNative
 import { _baseColor, _getWidth, _getHeight, _backgroundColor } from './utils/config'
 import TopHeard from './page/TopHeard';//头部页面
 import { _jude, _judeBackColor } from './utils/Judge';//导入判断接口
 const { height, width } = Dimensions.get('window')
 import HeardLook from './page/HeardLook';//导入头部的选择页面
-
+import compareTrucks from './compareTrucks.json'
 // const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
 
 const VIEWABILITY_CONFIG = {
@@ -32,14 +34,14 @@ export default class Main extends React.Component {
             return response.json();
         }).then((response) => {
             let responseData = response.data;
-            let sectionData = responseData.slice(1);
+            let sectionData = responseData.compareResult;
             let filteredSectionData = [];
             for (let ii = 0; ii < sectionData.length; ii++) {
                 const filter = (item) => (
                     (!item.isEqual)
                 );
                 let sectionItem = sectionData[ii];
-                sectionItem.key=ii;
+                sectionItem.key = ii;
                 const filteredData = sectionItem.data.filter(filter);
                 filteredSectionData.push({
                     groupName: sectionItem.groupName,
@@ -50,8 +52,8 @@ export default class Main extends React.Component {
 
             this.setState({
                 trucksInfo: [
-                    responseData[0].truckOne,
-                    responseData[0].truckTwo,
+                    responseData.truckOne,
+                    responseData.truckTwo,
                 ],
                 sectionData: sectionData,
                 filteredSectionData: filteredSectionData
@@ -59,23 +61,24 @@ export default class Main extends React.Component {
         });
 
         this.state = {
-            trucksInfo:[],
+            uri: undefined,
+            trucksInfo: [],
             sectionData: [],
             filteredSectionData: [],
             displayEqualItem: true,
             selectSection: 0,
             myType: true
         };
-        
+
     }
 
     _isClickAction = false;
 
     _dataSource = Array();
 
-    _sectionChooseListRef;
-    _captureSectionChooseRef = (ref) => {
-        this._sectionChooseListRef = ref;
+    _chooseFlatListRef;
+    _captureChooseFlatRef = (ref) => {
+        this._chooseFlatListRef = ref;
     };
 
     _sectionListRef;
@@ -116,17 +119,18 @@ export default class Main extends React.Component {
         if (this._isClickAction && index === this.state.selectSection) {
             this._isClickAction = false;
         }
+        const sectionData = this.state.displayEqualItem ? this.state.sectionData : this.state.filteredSectionData;
+        const totalIndex = sectionData.length - 1;
 
-        var totalIndex = this._dataSource.length - 1;
-
-        index = Math.min(Math.max(0, index -= ViewableCount));
+        
         // console.log(index, totalIndex, viewableCount);
-
-        // if (index == (totalIndex-viewableCount)) {
-        // this._sectionChooseListRef.scrollToIndex({ viewPosition: 1, index: Number(index) });
-        // } else {
-        this._sectionChooseListRef.scrollToIndex({ viewPosition: 0, index: Number(index) });
-        // }
+        
+        if (index == totalIndex) {
+            this._chooseFlatListRef.scrollToIndex({ viewPosition: 1, index: Number(index) });
+        } else {
+            index = Math.min(Math.max(0, index -= ViewableCount));
+            this._chooseFlatListRef.scrollToIndex({ viewPosition: 0, index: Number(index) });
+        }
     };
 
 
@@ -148,11 +152,29 @@ export default class Main extends React.Component {
         this._scrollToSection(index);
     }
 
-    //第一个横向的item
-    _renderItem = ({ item, index }) => {
+    //保存到相册
+    _handleTakeSnapshotClick = () => {
+        ReactNative.takeSnapshot(this._sectionListRef, { format: 'jpeg', quality: 0.8 }) // See UIManager.js for options
+            .then(uri => this.setState({ uri }))
+            .catch(error => Alert.alert(error));
+    }
+
+    //查看不同 查看全部
+    _handleFilterClick = () => {
+        // this._handleTakeSnapshotClick();
+
+        this._scrollToSection(0);
+        var displayEqualItem = !this.state.displayEqualItem;
+        this.setState({
+            displayEqualItem: displayEqualItem,
+        });
+    }
+
+    //横向选择item
+    _renderChooseFlatItem = ({ item, index }) => {
         return (
             <TouchableOpacity
-                onPress={this._itemClick.bind(this, item, index)}/*{this.itemClick.bind(this, item, index) }*/>
+                onPress={this._itemClick.bind(this, item, index)}>
                 <View style={styles.itemView}>
                     <Text style={{ fontSize: 14, color: this.state.selectSection == index ? '#FF5A5A' : '#999999' }}>{item.groupName}</Text>
                     <View style={styles.itemViewView}></View>
@@ -161,38 +183,59 @@ export default class Main extends React.Component {
         );
     }
 
-    //竖向列表的item
-    _renderItemComponent = ({ item, index }) => {
-        var value0 = item.value[0];
-        var value1 = item.value[1];
-        // var value1 = _jude(item.value[1]);
-        // console.log(item);
+    _colorWithText = (text) => {
+        if (text == "通过") {
+            return '#1FB113';
+        } else if (text == "不通过") {
+            return '#FF5A5A';
+        } else {
+            return '#999999';
+        }
+    }
+
+    //竖向列表item
+    _renderSectionItemComponent = ({ item, index }) => {
+        const value0 = item.value[0];
+        const value1 = item.value[1];
+        const valueBackgroundColor = item.isEqual ? 'white' : '#FFE8D9'
+        const value0Color = this._colorWithText(value0);
+        const value1Color = this._colorWithText(value1);
         return (
             <View style={[styles.itemMessageView, { borderTopWidth: index == 0 ? 0 : 1 }]}>
                 <View style={styles.itemMessageViewItwmOne}>
-                    <Text
-                        style={{ fontSize: 12, paddingLeft: 14, paddingRight: 14, color: '#999999' }}>{item.title}</Text>
+                    <Text style={{
+                        fontSize: 12,
+                        paddingTop: 10,
+                        paddingBottom: 10,
+                        paddingLeft: 14,
+                        paddingRight: 14,
+                        color: '#999999'
+                    }}>
+                        {item.title}
+                    </Text>
                 </View>
-                <View style={{ flex: 2, flexDirection: 'row', backgroundColor: _judeBackColor(item.isEqual) }}>
+                <View style={{ flex: 2, flexDirection: 'row', backgroundColor: valueBackgroundColor }}>
                     <View style={{
                         flex: 1,
+                        overflow: 'hidden',
                         justifyContent: 'center',
                         alignItems: 'center',
                         borderColor: '#CCCCD2', /*borderLeftWidth: 1, */
                         borderRightWidth: 1
                     }}>
                         <Text
-                            style={{ fontSize: 12, color: item.okone ? '#1FB113' : '#FF5A5A' }}>{value0}</Text>
+                            style={{ padding: 10, overflow: "hidden", fontSize: 12, color:value0Color }}>{value0}</Text>
                     </View>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <Text
-                            style={{ fontSize: 12, color: item.okone ? '#1FB113' : '#FF5A5A' }}>{value1}</Text>
+                            style={{ fontSize: 12, color:value1Color }}>{value1}</Text>
                     </View>
                 </View>
             </View>
         );
     }
 
+    //竖向列表section
     _renderSectionHeader = ({ section }) => (
         <View style={styles.sectionHeader}>
             {/* <Image source={require('./img/cricle.png')} style={styles.imageStyle}></Image> */}
@@ -208,7 +251,7 @@ export default class Main extends React.Component {
         </View>/*<Text style={styles.sectionHeader}>{section.title}</Text>*/
     );
 
-    //flatlist设置的标识
+    //flatList&sectionList设置的标识
     _keyExtractor = (item, index) => index;
 
     _topHeight = () => {
@@ -241,8 +284,8 @@ export default class Main extends React.Component {
         const displayEqualItemText = this.state.displayEqualItem ? '查看不同' : '查看全部';
         const sectionData = this.state.displayEqualItem ? this.state.sectionData : this.state.filteredSectionData;
 
-        const truck0 = this.state.trucksInfo.length>1 ? this.state.trucksInfo[0] : null
-        const truck1 = this.state.trucksInfo.length>1 ? this.state.trucksInfo[1] : null
+        const truck0 = this.state.trucksInfo.length > 1 ? this.state.trucksInfo[0] : null
+        const truck1 = this.state.trucksInfo.length > 1 ? this.state.trucksInfo[1] : null
         const imgThumbnail0 = truck0 && truck0.hasOwnProperty('imgThumbnail') ? truck0.imgThumbnail : '';
         const imgThumbnail1 = truck1 && truck1.hasOwnProperty('imgThumbnail') ? truck1.imgThumbnail : '';
         const title0 = truck0 && truck0.hasOwnProperty('titleStr') ? truck0.titleStr : '';
@@ -250,6 +293,7 @@ export default class Main extends React.Component {
 
         return (
             <View style={styles.pageContainer}>
+                <Image style={styles.image} source={{ uri: this.state.uri }} />
                 <TopHeard title={'车辆对比'} textStyle={{ fontSize: 20 }} onClick_Left={() => {
                     alert(666)
                 }}></TopHeard>
@@ -262,13 +306,7 @@ export default class Main extends React.Component {
                     borderTopWidth: 1
                 }}>
                     <HeardLook topType={this.state.myType} isFirst="yes" title={' 一 未知'} textMessage={displayEqualItemText}
-                        onClick={() => {
-                            this._scrollToSection(0);
-                            var displayEqualItem = !this.state.displayEqualItem;
-                            this.setState({
-                                displayEqualItem: displayEqualItem,
-                            });
-                        }}></HeardLook>
+                        onClick={this._handleFilterClick}></HeardLook>
                     <HeardLook topType={this.state.myType}
                         imageUrl={imgThumbnail0}
                         title={title0} textMessage={'电话咨询'}
@@ -284,11 +322,10 @@ export default class Main extends React.Component {
                 </View>
                 <View>
                     <FlatList
-                        ref={this._captureSectionChooseRef}
+                        ref={this._captureChooseFlatRef}
                         showsHorizontalScrollIndicator={false}
-                        /* ItemSeparatorComponent={this.ItemDivideComponent}//分割线组件 */
                         horizontal
-                        renderItem={this._renderItem}
+                        renderItem={this._renderChooseFlatItem}
                         legacyImplementation={false}
                         keyExtractor={this._keyExtractor}
                         getItemLayout={(data, index) => ({
@@ -303,11 +340,11 @@ export default class Main extends React.Component {
                     ref={this._captureSectionRef}
                     keyExtractor={this._keyExtractor}
                     onViewableItemsChanged={this._onViewableItemsChanged}
-                    renderItem={this._renderItemComponent}
+                    renderItem={this._renderSectionItemComponent}
                     renderSectionHeader={this._renderSectionHeader}
                     stickySectionHeadersEnabled={true}
                     sections={sectionData}
-                /* viewabilityConfig={VIEWABILITY_CONFIG}*/
+                    /* viewabilityConfig={VIEWABILITY_CONFIG} */
                 />
             </View>
             //   </ContentWrapper>
@@ -339,7 +376,7 @@ const styles = StyleSheet.create({
     },
     itemView: {
         height: 44,
-        width: SectionChooseList_ITEM_WIDTH,
+        minWidth: SectionChooseList_ITEM_WIDTH,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -359,7 +396,7 @@ const styles = StyleSheet.create({
     },
     itemMessageView: {
         flexDirection: 'row',
-        height: 50,
+        minHeight: 50,
         borderColor: '#CCCCD2',
     },
     itemMessageViewItwmOne: {

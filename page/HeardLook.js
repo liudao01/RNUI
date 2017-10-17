@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: (30),
         width: width / 3 - (40),
-        backgroundColor: 'red',
+        backgroundColor: '#FF5A5A',
         borderRadius: (8)
     },
     carImgStyle: {

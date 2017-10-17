@@ -1,0 +1,808 @@
+{
+  "resCode" : 1,
+  "resMsg" : "请求成功",
+  "data" : [ {
+    "truckTwo" : {
+      "id" : 105054,
+      "title" : "长安新豹 载货车  231匹$$2015年 6×4",
+      "color" : "黄色",
+      "cardtime" : "2015",
+      "price" : 16.5,
+      "createtime" : "2017-07-26 18:12:21",
+      "carstatus" : "2",
+      "power" : "231",
+      "isaccident" : null,
+      "deltag" : "0",
+      "updatetime" : "2017-09-11 15:52:31",
+      "showmileage" : 3.0,
+      "otherSeries" : "",
+      "ownerdepict" : "辨识度从巴萨的成绩啊搜索不到参加不舍得",
+      "viewcount" : 129,
+      "firsthand" : "1",
+      "license" : "",
+      "vin" : "UUYYYTTTRRTY111",
+      "contactname" : "任转飞",
+      "contacttel" : "17500000000",
+      "seecarplace" : "1111",
+      "transferfee" : "0",
+      "insurancetime" : "",
+      "inspectiontime" : "2017-07-26",
+      "needcheck" : "2",
+      "store" : "",
+      "emission" : "2",
+      "infoid" : "1707265054",
+      "pubcount" : 0,
+      "report" : null,
+      "newReport" : null,
+      "franchisee" : null,
+      "checktime" : "2017-07-26",
+      "changetime" : null,
+      "detect" : "2",
+      "check" : null,
+      "curprice" : 15.0,
+      "pricesmyb" : "+15000",
+      "smybtime" : 1503630303000,
+      "changeflag" : null,
+      "priceFlag" : false,
+      "saleFlag" : false,
+      "remindFranchiseeFlag" : false,
+      "changeFranchiseeFlag" : false,
+      "hasFranchiseeFlag" : false,
+      "franchiseeName" : null,
+      "franchiseeTel" : "",
+      "surveyorName" : "",
+      "surveyorId" : null,
+      "areaidkey" : "2037",
+      "areaname" : "覃塘区",
+      "platform" : "18",
+      "drivercard" : "",
+      "tmptime" : null,
+      "proxysell" : "0",
+      "source" : "0",
+      "clerkid" : null,
+      "confirm" : "",
+      "proxystatus" : "",
+      "ableloan" : "0",
+      "buyname" : "",
+      "buytel" : "",
+      "dealdate" : null,
+      "dealprice" : "",
+      "loanmoney" : "",
+      "assurefolk" : "",
+      "clerkName" : "",
+      "clerkTel" : "",
+      "shoptel" : "",
+      "jsfshopName" : "",
+      "shopcontact" : "",
+      "driveform" : "3",
+      "reason" : "",
+      "sellernote" : "",
+      "proxyform" : null,
+      "seecName" : "贵港市",
+      "fuel" : 1,
+      "fuelName" : "柴油",
+      "motorName" : "锡柴",
+      "motorId" : 3,
+      "applyTime" : null,
+      "sorttime" : "2017-08-25",
+      "createUserId" : 52923,
+      "tiTypes" : "1",
+      "tradeStatus" : 1,
+      "clueCode" : null,
+      "dealerid" : null,
+      "zqapplytime" : null,
+      "tags" : "4",
+      "authentication" : "2",
+      "tag" : "4",
+      "tagName" : "可议价",
+      "downPayment" : null,
+      "isSetPriceRemind" : null,
+      "bodySize" : null,
+      "customerid" : 52820,
+      "userName" : "17700000000",
+      "imgThumbnail" : "http://7xo98k.com1.z0.glb.clouddn.com/3_az170726181137_13733NWM.jpg",
+      "imgEchoList" : [ {
+        "position" : "0",
+        "url" : "#0http://7xo98k.com1.z0.glb.clouddn.com/0_az170726181123_13786NWM.jpg"
+      }, {
+        "position" : "1",
+        "url" : "#1http://7xo98k.com1.z0.glb.clouddn.com/1_az170726181127_13795NWM.jpg"
+      }, {
+        "position" : "2",
+        "url" : "#2http://7xo98k.com1.z0.glb.clouddn.com/2_az170726181132_13776NWM.jpg"
+      }, {
+        "position" : "3",
+        "url" : "#3http://7xo98k.com1.z0.glb.clouddn.com/3_az170726181137_13733NWM.jpg"
+      }, {
+        "position" : "4",
+        "url" : "#4http://7xo98k.com1.z0.glb.clouddn.com/4_az170726181143_13784NWM.jpg"
+      }, {
+        "position" : "5",
+        "url" : "#5http://7xo98k.com1.z0.glb.clouddn.com/5_az170726181147_13776NWM.jpg"
+      }, {
+        "position" : "6",
+        "url" : "#6http://7xo98k.com1.z0.glb.clouddn.com/6_az170726181154_13798NWM.jpg"
+      }, {
+        "position" : "7",
+        "url" : "#7http://7xo98k.com1.z0.glb.clouddn.com/7_az170726181159_13737NWM.jpg"
+      } ],
+      "cardtimeStr" : "2015年3月",
+      "transferfeestr" : "不可过户",
+      "firsthandStr" : "是",
+      "provinceName" : "",
+      "seepkey" : 20,
+      "userTel" : "17700000000",
+      "seeckey" : 226,
+      "titleStr" : "长安新豹 载货车  231匹 2015年 6×4",
+      "driveformStr" : "6×4",
+      "emissionStr" : "国四",
+      "guarantee" : "",
+      "tagstr" : "可议价",
+      "showStr" : "2017-09-11 15:52:31",
+      "shareurl" : "http://www.woniuhuoche.com/share_down/mobile/index.html",
+      "authstr" : "抵押车",
+      "userCity" : "",
+      "tmptimeStr" : "",
+      "shopaddr" : "",
+      "citykey" : 0,
+      "serieskey" : 358,
+      "brandkey" : 60,
+      "modelkey" : 6,
+      "imgList" : "http://7xo98k.com1.z0.glb.clouddn.com/0_az170726181123_13786NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/1_az170726181127_13795NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/2_az170726181132_13776NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/3_az170726181137_13733NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/4_az170726181143_13784NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/5_az170726181147_13776NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/6_az170726181154_13798NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/7_az170726181159_13737NWM.jpg",
+      "cityName" : "",
+      "brandName" : "长安",
+      "modelName" : "载货车",
+      "seriesName" : "新豹",
+      "seepName" : "广西壮族自治区",
+      "userType" : "0",
+      "carstatusstr" : "待检",
+      "needcheckstr" : "检测",
+      "dealdateStr" : "",
+      "provincekey" : 0,
+      "isaccidentstr" : "暂无",
+      "userTypeStr" : "个人"
+    },
+    "truckOne" : {
+      "id" : 104625,
+      "title" : "一汽解放财运王 自卸车  43匹$$2015年 6×6",
+      "color" : "黄色",
+      "cardtime" : "2015",
+      "price" : 3.9,
+      "createtime" : "2017-07-15 09:00:15",
+      "carstatus" : "2",
+      "power" : "43",
+      "isaccident" : null,
+      "deltag" : "0",
+      "updatetime" : "2017-09-11 15:52:31",
+      "showmileage" : 36.0,
+      "otherSeries" : "",
+      "ownerdepict" : "",
+      "viewcount" : 285,
+      "firsthand" : "1",
+      "license" : "",
+      "vin" : "SFADFADAFDFADFAFA",
+      "contactname" : "可乐",
+      "contacttel" : "17799999999",
+      "seecarplace" : "",
+      "transferfee" : "1",
+      "insurancetime" : "",
+      "inspectiontime" : "2017-07-15",
+      "needcheck" : "4",
+      "store" : "",
+      "emission" : "3",
+      "infoid" : "1707154625",
+      "pubcount" : 0,
+      "report" : null,
+      "newReport" : null,
+      "franchisee" : null,
+      "checktime" : "2017-07-15",
+      "changetime" : null,
+      "detect" : "2",
+      "check" : null,
+      "curprice" : 4.0,
+      "pricesmyb" : "-1000",
+      "smybtime" : 1500269898000,
+      "changeflag" : null,
+      "priceFlag" : false,
+      "saleFlag" : false,
+      "remindFranchiseeFlag" : false,
+      "changeFranchiseeFlag" : false,
+      "hasFranchiseeFlag" : false,
+      "franchiseeName" : null,
+      "franchiseeTel" : "",
+      "surveyorName" : "",
+      "surveyorId" : null,
+      "areaidkey" : "5",
+      "areaname" : "朝阳区",
+      "platform" : "18",
+      "drivercard" : "",
+      "tmptime" : null,
+      "proxysell" : "0",
+      "source" : "0",
+      "clerkid" : null,
+      "confirm" : "",
+      "proxystatus" : "",
+      "ableloan" : "0",
+      "buyname" : "",
+      "buytel" : "",
+      "dealdate" : null,
+      "dealprice" : "",
+      "loanmoney" : "",
+      "assurefolk" : "",
+      "clerkName" : "",
+      "clerkTel" : "",
+      "shoptel" : "",
+      "jsfshopName" : "",
+      "shopcontact" : "",
+      "driveform" : "4",
+      "reason" : "",
+      "sellernote" : "",
+      "proxyform" : null,
+      "seecName" : "北京市",
+      "fuel" : 1,
+      "fuelName" : "柴油",
+      "motorName" : "潍柴",
+      "motorId" : 7,
+      "applyTime" : null,
+      "sorttime" : "2017-07-17",
+      "createUserId" : 52923,
+      "tiTypes" : "1",
+      "tradeStatus" : 1,
+      "clueCode" : null,
+      "dealerid" : null,
+      "zqapplytime" : null,
+      "tags" : "1",
+      "authentication" : "1",
+      "tag" : "1",
+      "tagName" : "可过户",
+      "downPayment" : null,
+      "isSetPriceRemind" : null,
+      "bodySize" : null,
+      "customerid" : null,
+      "userName" : "17700000000",
+      "imgThumbnail" : "http://7xo98k.com1.z0.glb.clouddn.com/3_az170715085920_13778NWM.jpg",
+      "imgEchoList" : [ {
+        "position" : "0",
+        "url" : "#0http://7xo98k.com1.z0.glb.clouddn.com/0_az170715085902_13772NWM.jpg"
+      }, {
+        "position" : "1",
+        "url" : "#1http://7xo98k.com1.z0.glb.clouddn.com/1_az170715085907_13746NWM.jpg"
+      }, {
+        "position" : "2",
+        "url" : "#2http://7xo98k.com1.z0.glb.clouddn.com/2_az170715085912_13718NWM.jpg"
+      }, {
+        "position" : "3",
+        "url" : "#3http://7xo98k.com1.z0.glb.clouddn.com/3_az170715085920_13778NWM.jpg"
+      }, {
+        "position" : "4",
+        "url" : "#4http://7xo98k.com1.z0.glb.clouddn.com/4_az170715085928_13761NWM.jpg"
+      }, {
+        "position" : "5",
+        "url" : "#5http://7xo98k.com1.z0.glb.clouddn.com/5_az170715085934_13749NWM.jpg"
+      }, {
+        "position" : "6",
+        "url" : "#6http://7xo98k.com1.z0.glb.clouddn.com/6_az170715085940_13710NWM.jpg"
+      }, {
+        "position" : "7",
+        "url" : "#7http://7xo98k.com1.z0.glb.clouddn.com/7_az170715085945_13720NWM.jpg"
+      }, {
+        "position" : "8",
+        "url" : "#8http://7xo98k.com1.z0.glb.clouddn.com/8_az170715090223_13783NWM.jpg"
+      }, {
+        "position" : "9",
+        "url" : "#9http://7xo98k.com1.z0.glb.clouddn.com/9_az170715090231_13765NWM.jpg"
+      }, {
+        "position" : "10",
+        "url" : "#10http://7xo98k.com1.z0.glb.clouddn.com/10_az170715090243_13711NWM.jpg"
+      }, {
+        "position" : "11",
+        "url" : "#11http://7xo98k.com1.z0.glb.clouddn.com/11_az170715090248_13735NWM.jpg"
+      }, {
+        "position" : "12",
+        "url" : "#12http://7xo98k.com1.z0.glb.clouddn.com/12_az170715090258_13790NWM.jpg"
+      }, {
+        "position" : "13",
+        "url" : "#13http://7xo98k.com1.z0.glb.clouddn.com/13_az170715090304_13771NWM.jpg"
+      }, {
+        "position" : "14",
+        "url" : "#14http://7xo98k.com1.z0.glb.clouddn.com/14_az170715091101_13745NWM.jpg"
+      }, {
+        "position" : "15",
+        "url" : "#15http://7xo98k.com1.z0.glb.clouddn.com/15_az170715091105_13762NWM.jpg"
+      }, {
+        "position" : "16",
+        "url" : "#16http://7xo98k.com1.z0.glb.clouddn.com/16_az170715091111_13743NWM.jpg"
+      }, {
+        "position" : "17",
+        "url" : "#17http://7xo98k.com1.z0.glb.clouddn.com/17_az170715091116_13716NWM.jpg"
+      }, {
+        "position" : "18",
+        "url" : "#18http://7xo98k.com1.z0.glb.clouddn.com/18_az170715091121_13731NWM.jpg"
+      }, {
+        "position" : "19",
+        "url" : "#19http://7xo98k.com1.z0.glb.clouddn.com/19_az170715091125_13764NWM.jpg"
+      }, {
+        "position" : "20",
+        "url" : "#20http://7xo98k.com1.z0.glb.clouddn.com/20_az170715091131_13719NWM.jpg"
+      }, {
+        "position" : "21",
+        "url" : "#21http://7xo98k.com1.z0.glb.clouddn.com/21_az170715091142_13744NWM.jpg"
+      }, {
+        "position" : "22",
+        "url" : "#22http://7xo98k.com1.z0.glb.clouddn.com/22_az170715091147_13764NWM.jpg"
+      }, {
+        "position" : "23",
+        "url" : "#23http://7xo98k.com1.z0.glb.clouddn.com/23_az170715091137_13746NWM.jpg"
+      } ],
+      "cardtimeStr" : "2015年7月",
+      "transferfeestr" : "可过户",
+      "firsthandStr" : "是",
+      "provinceName" : "",
+      "seepkey" : 1,
+      "userTel" : "17700000000",
+      "seeckey" : 1,
+      "titleStr" : "一汽解放财运王 自卸车  43匹 2015年 6×6",
+      "driveformStr" : "6×6",
+      "emissionStr" : "国二",
+      "guarantee" : "",
+      "tagstr" : "可过户",
+      "showStr" : "未检测",
+      "shareurl" : "http://www.woniuhuoche.com/share_down/mobile/index.html",
+      "authstr" : "认证车",
+      "userCity" : "",
+      "tmptimeStr" : "",
+      "shopaddr" : "",
+      "citykey" : 0,
+      "serieskey" : 179,
+      "brandkey" : 47,
+      "modelkey" : 13,
+      "imgList" : "http://7xo98k.com1.z0.glb.clouddn.com/0_az170715085902_13772NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/1_az170715085907_13746NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/2_az170715085912_13718NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/3_az170715085920_13778NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/4_az170715085928_13761NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/5_az170715085934_13749NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/6_az170715085940_13710NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/7_az170715085945_13720NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/8_az170715090223_13783NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/9_az170715090231_13765NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/10_az170715090243_13711NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/11_az170715090248_13735NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/12_az170715090258_13790NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/13_az170715090304_13771NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/14_az170715091101_13745NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/15_az170715091105_13762NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/16_az170715091111_13743NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/17_az170715091116_13716NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/18_az170715091121_13731NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/19_az170715091125_13764NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/20_az170715091131_13719NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/21_az170715091142_13744NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/22_az170715091147_13764NWM.jpg,http://7xo98k.com1.z0.glb.clouddn.com/23_az170715091137_13746NWM.jpg",
+      "cityName" : "",
+      "brandName" : "一汽解放",
+      "modelName" : "自卸车",
+      "seriesName" : "财运王",
+      "seepName" : "北京市",
+      "userType" : "0",
+      "carstatusstr" : "待检",
+      "needcheckstr" : "暂无",
+      "dealdateStr" : "",
+      "provincekey" : 0,
+      "isaccidentstr" : "暂无",
+      "userTypeStr" : "个人"
+    }
+  }, {
+    "groupName" : "基本信息",
+    "data" : [ {
+      "title" : "信息编号",
+      "isEqual" : false,
+      "value" : [ "1707154625", "1707265054" ]
+    }, {
+      "title" : "车主报价",
+      "isEqual" : false,
+      "value" : [ "3.9", "16.5" ]
+    }, {
+      "title" : "新车价格",
+      "isEqual" : false,
+      "value" : [ "36.0", "17.5" ]
+    }, {
+      "title" : "上架时间",
+      "isEqual" : false,
+      "value" : [ "2017-07-15", "2017-07-26" ]
+    }, {
+      "title" : "是否可过户",
+      "isEqual" : false,
+      "value" : [ "可过户", "不可过户" ]
+    }, {
+      "title" : "所在城市",
+      "isEqual" : false,
+      "value" : [ "北京市北京市", "广西壮族自治区贵港市" ]
+    }, {
+      "title" : "品牌车系",
+      "isEqual" : false,
+      "value" : [ "一汽解放", "长安" ]
+    }, {
+      "title" : "车辆类型",
+      "isEqual" : false,
+      "value" : [ "自卸车", "载货车" ]
+    }, {
+      "title" : "车辆颜色",
+      "isEqual" : true,
+      "value" : [ "黄色", "黄色" ]
+    }, {
+      "title" : "驱动方式",
+      "isEqual" : false,
+      "value" : [ "6×6", "6×4" ]
+    }, {
+      "title" : "燃料类型",
+      "isEqual" : true,
+      "value" : [ "柴油", "柴油" ]
+    }, {
+      "title" : "排放标准",
+      "isEqual" : false,
+      "value" : [ "3", "2" ]
+    }, {
+      "title" : "发动机品牌",
+      "isEqual" : false,
+      "value" : [ "潍柴", "锡柴" ]
+    }, {
+      "title" : "表现里程",
+      "isEqual" : false,
+      "value" : [ "36.0", "3.0" ]
+    }, {
+      "title" : "马力",
+      "isEqual" : false,
+      "value" : [ "43", "231" ]
+    }, {
+      "title" : "库存/二手",
+      "isEqual" : true,
+      "value" : [ "是", "是" ]
+    }, {
+      "title" : "车架号",
+      "isEqual" : false,
+      "value" : [ "SFADFADAFDFADFAFA", "UUYYYTTTRRTY111" ]
+    }, {
+      "title" : "档位数",
+      "isEqual" : false,
+      "value" : [ "12档", "-" ]
+    }, {
+      "title" : "轮胎规格",
+      "isEqual" : false,
+      "value" : [ "315/80R22.5 16PR", "-" ]
+    } ]
+  }, {
+    "groupName" : "手续信息",
+    "data" : [ {
+      "title" : "出厂日期",
+      "isEqual" : false,
+      "value" : [ "2015-07-15", "-" ]
+    }, {
+      "title" : "初登日期",
+      "isEqual" : false,
+      "value" : [ "2015-07-01", "2015-03-01" ]
+    }, {
+      "title" : "年检有效期",
+      "isEqual" : false,
+      "value" : [ "2017-07-15", "2017-07-26" ]
+    }, {
+      "title" : "商险有效期",
+      "isEqual" : false,
+      "value" : [ "2017-07-15", "-" ]
+    }, {
+      "title" : "运营档案",
+      "isEqual" : false,
+      "value" : [ "有", "-" ]
+    } ]
+  }, {
+    "groupName" : "骨架检查",
+    "data" : [ {
+      "title" : "前围骨架",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "A柱（左右）",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "后侧围（左右）",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "底板",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "车顶",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "后围板",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "裙围",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "前横梁",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "驾驶室悬挂",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "前纵梁（左右）",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "前桥",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "中横梁",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "中纵梁",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "中后桥",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "后横梁",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "后纵梁（左右）",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    } ]
+  }, {
+    "groupName" : "驾驶室检查",
+    "data" : [ {
+      "title" : "前保险杠及支架",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "前面罩及左右包角",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "前挡风玻璃",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "车顶",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "导流板",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "侧围",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "后围",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "车门(左右)",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "门窗玻璃(左右后)",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "后视镜(左右)",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "前大灯(左右)",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "上装(限于指定部分车型)",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "安全带结构是否完整、功能是否正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "驾驶室内是否有异味",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "内后视镜、座椅、卧铺是否无破损、功能正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "车顶及内饰是否无破损、松动、开裂或有污迹",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "仪表台及相关附件是否无划痕、无老化",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "方向盘及管柱是否受损，调整机构是否正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "门窗密封条是否良好、无老化，密封是否正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "玻璃窗升降器、门窗工作是否正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "天窗工作是否正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "驻车制动系统性能是否正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "其他项目",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    } ]
+  }, {
+    "groupName" : "发动机检查",
+    "data" : [ {
+      "title" : "发动机皮带是否有老化",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "散热器、中冷器是否破损",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "油管、水管是否有老化、裂痕",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "线束是否有老化、破损",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "发动机支撑是否有损坏",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "(查阅技术档案和综合工况)发动机是否有正常保养",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "(查阅技术档案或螺丝)发动机是否有小修（或等同于小修）记录",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "(查阅技术档案或螺丝)发动机是否有中修（或等同于中修）记录",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "(查阅技术档案或螺丝)发动机是否有大修（或等同于大修）记录",
+      "isEqual" : false,
+      "value" : [ "未通过", "-" ]
+    }, {
+      "title" : "其他项目",
+      "isEqual" : false,
+      "value" : [ "未通过", "-" ]
+    } ]
+  }, {
+    "groupName" : "底盘检查",
+    "data" : [ {
+      "title" : "减震器是否有渗漏",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "钢板弹簧、吊耳或胶套是否有损坏",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "底盘是否有漏液",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "底盘气管有无老化、裂痕",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "底盘线束有无老化、破损",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "转向拉杆、平衡杆等是否有变形",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "传动轴是否有修复痕迹",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "变速箱外壳和悬吊支架是否有变形或损坏",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "中后桥壳是否有变形、损坏或渗漏",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "后保险杠是否损坏",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "轮胎是否有严重磨损",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "钢圈是否有严重变形",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "其他项目",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    } ]
+  }, {
+    "groupName" : "路试检查",
+    "data" : [ {
+      "title" : "启动是否顺畅(时间少于5秒，或一次启动)",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "发动机在冷车条件下怠速运转是否稳定",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "怠速运转时发动机是否无异响，空挡状态下逐渐增加发动机转速，发动机声音过渡是否无异响",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "车辆排气是否无异常,消声器是否有异响",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "发动机是否存在异常抖动",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "音响系统是否工作正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "灯光系统是否工作正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "雨刮系统是否工作正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "空调系统是否工作正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "变速箱换挡工作是否正常，无异响或抖动",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "离合器结合是否顺畅、无异响或抖动",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "储气系统是否工作正常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "正常行驶是否有跑偏、异响、抖动等异常现象",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "转向系统工作是否无异常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "悬挂系统工作是否无异常",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "其他项目",
+      "isEqual" : false,
+      "value" : [ "通过", "-" ]
+    }, {
+      "title" : "综合评价",
+      "isEqual" : false,
+      "value" : [ "经检测，车辆驾驶室外观正常，漆面无损伤、无修复，内饰件无油污破损现象，车身骨架完好，无变形、无损伤，底盘件紧固良好，无松动，工作正常，发动机、变速箱及驱动桥工作正常，动力输出强劲 ，车况整体状况优秀。", "-" ]
+    } ]
+  } ],
+  "backup" : null
+}
