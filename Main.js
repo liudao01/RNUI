@@ -86,7 +86,19 @@ export default class Main extends React.Component {
         this._sectionListRef = ref;
     };
 
-    _scrollToSection(sectionIndex) {
+    _chooseFlatListScrollToSection = (sectionIndex) => {
+        var index = sectionIndex;
+        const sectionData = this.state.displayEqualItem ? this.state.sectionData : this.state.filteredSectionData;
+        const totalIndex = sectionData.length - 1;
+        if (index == totalIndex) {
+            this._chooseFlatListRef.scrollToIndex({ viewPosition: 1, index: Number(index) });
+        } else {
+            index = Math.min(Math.max(0, index -= ViewableCount));
+            this._chooseFlatListRef.scrollToIndex({ viewPosition: 0, index: Number(index) });
+        }
+    }
+
+    _sectionListScrollToSection(sectionIndex) {
         this._sectionListRef
             .scrollToLocation({ sectionIndex: sectionIndex, itemIndex: 0, viewOffset: 35 });
     }
@@ -116,40 +128,28 @@ export default class Main extends React.Component {
         // console.log("调用了: " + index);
 
         this._updateSelectSection(index);
-        if (this._isClickAction && index === this.state.selectSection) {
-            this._isClickAction = false;
-        }
-        const sectionData = this.state.displayEqualItem ? this.state.sectionData : this.state.filteredSectionData;
-        const totalIndex = sectionData.length - 1;
-
-        
-        // console.log(index, totalIndex, viewableCount);
-        
-        if (index == totalIndex) {
-            this._chooseFlatListRef.scrollToIndex({ viewPosition: 1, index: Number(index) });
-        } else {
-            index = Math.min(Math.max(0, index -= ViewableCount));
-            this._chooseFlatListRef.scrollToIndex({ viewPosition: 0, index: Number(index) });
-        }
+        // if (this._isClickAction && index === this.state.selectSection) {
+        //     this._isClickAction = false;
+        // }
+        this._chooseFlatListScrollToSection(index)
     };
 
 
     _updateSelectSection = (index) => {
-        if (!this._isClickAction) {
+        // if (!this._isClickAction) {
             this.setState({
                 selectSection: index,
                 myType: type
             });
-        }
+        // }
     }
 
     //横向item的点击事件
     _itemClick = (item, index) => {
-        this._isClickAction = false;
         this.setState({ selectSection: index });
         this._updateSelectSection(index);
-        this._isClickAction = true;
-        this._scrollToSection(index);
+        this._chooseFlatListScrollToSection(index);
+        this._sectionListScrollToSection(index);
     }
 
     //保存到相册
@@ -163,7 +163,7 @@ export default class Main extends React.Component {
     _handleFilterClick = () => {
         // this._handleTakeSnapshotClick();
 
-        this._scrollToSection(0);
+        this._sectionListScrollToSection(0);
         var displayEqualItem = !this.state.displayEqualItem;
         this.setState({
             displayEqualItem: displayEqualItem,
