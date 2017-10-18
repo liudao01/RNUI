@@ -45,14 +45,14 @@ export default class HeardLook extends React.Component {
 
 
     renderFirstText = (title) => {
-        return <View style={styles.container}>
+        return <View style={[{backgroundColor:'#F3F3F3'},styles.container]}>
             <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-                <View style={{width: 10, height: 1, backgroundColor: "#000"}}></View>
-                <Text numberOfLines={2} style={styles.itemText}>未知</Text>
+                <View style={{width: 10, height: 1, backgroundColor: "#999999"}}></View>
+                <Text numberOfLines={2} style={[{color:'#999999'}, styles.itemText]}>未知</Text>
             </View>
             <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
                 <View style={{width: 10, height: 5, backgroundColor: "#FFE8D9"}}></View>
-                <Text numberOfLines={2} style={styles.itemText}>已知</Text>
+                <Text numberOfLines={2} style={[{color:'#999999'},styles.itemText]}>不同项背景</Text>
             </View>
         </View>
     }
