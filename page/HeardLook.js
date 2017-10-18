@@ -34,7 +34,6 @@ export default class HeardLook extends React.Component {
             isNeedUpdate = true;
             return (null);
         } else {
-            console.log("isFirst = " + isFirst);
             isNeedUpdate = true;
             // console.log("传入的 mimageUrl = " + mimageUrl);
             return <Image style={styles.carImgStyle} source={{
@@ -72,7 +71,6 @@ export default class HeardLook extends React.Component {
                         this._imageUrlIsNot(imageUrl, topType, isFirst)
                     }
                     <View style={styles.firstTextStyle}>
-                        { console.log("imageUrl = " + imageUrl)}
                         {imageUrl == "" || imageUrl == undefined ? this.renderFirstText(title) : this.renderOtherText(title)}
 
                     </View>
