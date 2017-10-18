@@ -18,6 +18,7 @@ export default class HeardLook extends React.Component {
         super(props)
         propTypes = {
             imageUrl: PropTypes.string,//图片
+            isFirst: PropTypes.string,//图片
             title: PropTypes.string, // 标题
             topType: PropTypes.bool, // 顶部的样式 显示图片或者不显示图片
             textMessage: Text.propTypes.string, // 标题文本样式
@@ -26,8 +27,7 @@ export default class HeardLook extends React.Component {
     }
 
 
-    _imageUrlIsNot = (mimageUrl, topType) => {
-
+    _imageUrlIsNot = (mimageUrl, topType, isFirst) => {
         // console.log("传入的 topType = " + topType);
         if (!topType || mimageUrl == "" || mimageUrl == null || mimageUrl == undefined) {
             itemHeight = 80;
@@ -43,40 +43,36 @@ export default class HeardLook extends React.Component {
         }
     }
 
-/*    _isFirst = (isfirst, title) => {
 
-        console.log("传入的 imageUrl = " + imageUrl);
-        if (isfirst == "" || isfirst == null || isfirst == undefined) {
-            return <View style={styles.firstTextStyle}>
-                <Text numberOfLines={2} style={styles.itemText}>
-                    {title}
-                </Text>
-                <Text numberOfLines={2} style={styles.itemText}>
-                    {title}
-                </Text>
+    renderFirstText = (title) => {
+        return <View style={styles.container}>
+            <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+                <View style={{width: 10, height: 1, backgroundColor: "#000"}}></View>
+                <Text numberOfLines={2} style={styles.itemText}>未知</Text>
             </View>
-        } else {
-            return <View style={styles.firstTextStyle}>
-                <Text numberOfLines={2} style={styles.itemText}>
-                    {title}
-                </Text>
+            <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+                <View style={{width: 10, height: 5, backgroundColor: "#FFE8D9"}}></View>
+                <Text numberOfLines={2} style={styles.itemText}>已知</Text>
             </View>
-
-        }
-    }*/
+        </View>
+    }
+    renderOtherText = (title) => {
+        return <Text numberOfLines={2} style={styles.itemText}>
+            {title}
+        </Text>
+    }
 
     render() {
-        var {topType, imageUrl, title, textMessage, onClick} = this.props
+        var {isFirst, topType, imageUrl, title, textMessage, onClick} = this.props
         return (
             <View style={styles.allView}>
                 <View style={styles.itemView}>
                     {
-                        this._imageUrlIsNot(imageUrl, topType)
+                        this._imageUrlIsNot(imageUrl, topType, isFirst)
                     }
                     <View style={styles.firstTextStyle}>
-                        <Text numberOfLines={2} style={styles.itemText}>
-                            {title}
-                        </Text>
+                        {imageUrl == "" || imageUrl == undefined ? this.renderFirstText(title) : this.renderOtherText(title)}
+
                     </View>
                     <TouchableOpacity onPress={() => {
                         onClick()
@@ -95,6 +91,13 @@ export default class HeardLook extends React.Component {
 }
 // 样式
 const styles = StyleSheet.create({
+
+    container: {
+        flexDirection: 'column',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     firstTextStyle: {
         flexDirection: 'column',
         flex: 1,
