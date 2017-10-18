@@ -27,7 +27,8 @@ const ViewableCount = Math.floor(ScreenWidth / SectionChooseList_ITEM_WIDTH) - 1
 export default class Main extends React.Component {
     constructor(props) {
         super(props);
-        let uri = 'http://58.58.62.227:81/truck/api/v2/truck/compareTrucks?truckid1=104625&truckid2=105054';
+        // let uri = this.props.uri;// 'http://58.58.62.227:81/truck/api/v2/truck/compareTrucks?truckid1=104625&truckid2=105054';
+        let uri = 'http://58.58.62.227:81/truck/api/v2/truck/compareTrucks?truckid1=104625&truckid2=105054';        
         fetch(uri).then((response) => {
             this.responseURL = response.url;
             this.responseHeaders = response.headers;
